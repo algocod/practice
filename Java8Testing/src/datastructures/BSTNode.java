@@ -5,7 +5,6 @@ public class BSTNode {
 	private Integer value = null;
 	private BSTNode Rnode = null;
 	private BSTNode Lnode = null;
-	private BSTNode Pnode = null;
 	
 	public boolean isGreaterthanRoot(Integer comp)
 	{
@@ -39,14 +38,6 @@ public class BSTNode {
 	public Integer getValue()
 	{
 		return this.value;
-	}
-	
-	public BSTNode getPnode() {
-		return Pnode;
-	}
-
-	public void setPnode(BSTNode pnode) {
-		Pnode = pnode;
 	}
 
 	public BSTNode(Integer root)
