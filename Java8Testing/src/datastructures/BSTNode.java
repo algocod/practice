@@ -2,18 +2,14 @@ package datastructures;
 
 public class BSTNode {
 	
-	private Integer root = null;
+	private Integer value = null;
 	private BSTNode Rnode = null;
 	private BSTNode Lnode = null;
+	private BSTNode Pnode = null;
 	
-	public BSTNode(Integer root)
-	{
-		this.root = root;
-	}
-
 	public boolean isGreaterthanRoot(Integer comp)
 	{
-		if (comp>root)
+		if (comp>value)
 			return true;
 		else 
 			return false;
@@ -40,22 +36,38 @@ public class BSTNode {
 		this.Lnode = ln;
 	}
 	
-	public Integer getRoot()
+	public Integer getValue()
 	{
-		return this.root;
+		return this.value;
 	}
 	
-	// Improve this function to write a traversal of a tree, this is what its trying to do. 
-	public void toString(BSTNode n)
+	public BSTNode getPnode() {
+		return Pnode;
+	}
+
+	public void setPnode(BSTNode pnode) {
+		Pnode = pnode;
+	}
+
+	public BSTNode(Integer root)
 	{
-		if(n!=null)
+		this.value = root;
+	}
+
+	
+	// Improve this function to write a traversal of a tree, this is what its trying to do. 
+
+	public String print(BSTNode node)
+	{
+		if(node==null)
+			return "";
+		else
 		{
-			System.out.println("Main node "+ n.getRoot());
-			System.out.println("Right element"+n.getRightNode()!=null?n.getRightNode().getRoot():"nothing");
-			System.out.println("Left element"+n.getLeftNode()!=null?n.getLeftNode().getRoot():"nothing");
+			// Left Traversal and Right traversal is below
+			//return print(node.getLeftNode()) +"--"+ node.getValue() + "--"+print(node.getRightNode());
+			return print(node.getRightNode()) +"--"+ node.getValue() + "--"+print(node.getLeftNode());
 		}
 		
-		toString(n.getRightNode());
-		toString(n.getLeftNode());
 	}
+	
 }
