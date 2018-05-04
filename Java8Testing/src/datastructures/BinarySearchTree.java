@@ -1,7 +1,7 @@
 package datastructures;
 
 /**
- * Addition of elements to a tree. Key is setting to the Java object in method like node.setRIghtNode(new BstNode(8))
+ * Addition of elements to a tree. >> Key is setting to the Java object in method like node.setRIghtNode(new BstNode(8))
 (a) Inorder (Left, Root, Right) : 4 2 5 1 3
 (b) Preorder (Root, Left, Right) : 1 2 4 5 3
 (c) Postorder (Left, Right, Root) : 4 5 2 3 1
@@ -62,6 +62,25 @@ public class BinarySearchTree {
 		}
 	}
 	
+	public static int getElementAtIndex(BSTNode node, int index, int starting)
+	{
+		//try entering this into a stack and then pop it out.
+		/*
+		if(node!=null && starting==index)
+		{
+			return node.getValue();
+		}
+		else if (node!=null)
+		{
+			starting++;
+			getElementAtIndex(node.getLeftNode(), index, starting) 
+			
+		}
+		*/
+		
+		return 0;
+	}
+	
 	public static boolean find(BSTNode node, Integer val)
 	{
 		if(node==null)
@@ -79,42 +98,4 @@ public class BinarySearchTree {
 		}
 		
 	}
-
-	/*
-	public static void addToTree(BSTNode rt, Integer[] arr, int offset)
-	{
-
-		if(offset>=arr.length)
-			return;
-		if(rt==null)
-		{
-			mainRoot = new BSTNode(arr[offset]);
-			addToTree(mainRoot, arr, offset+1);
-		}
-			
-		
-		if(rt!=null && rt.isGreaterthanRoot(arr[offset]) && rt.getRightNode()==null)
-		{
-			rt.setRightNode(new BSTNode(arr[offset]));
-			addToTree(mainRoot, arr, offset+1);
-		}
-		else if (rt!=null && rt.isGreaterthanRoot(arr[offset]) && rt.getRightNode()!=null)
-		{
-			addToTree(rt.getRightNode(),arr,offset);
-		}
-		else if (rt!=null && !rt.isGreaterthanRoot(arr[offset]) && rt.getLeftNode()==null)
-		{
-			rt.setLeftNode(new BSTNode(arr[offset]));
-			addToTree(mainRoot, arr, offset+1);
-		}
-		else if(rt!=null && !rt.isGreaterthanRoot(arr[offset]) && rt.getLeftNode()!=null)
-		{
-			addToTree(rt.getLeftNode(),arr, offset);
-		}
-	
-		if(rt!=null)
-			rt.toString();
-		
-	}
-*/
 }
