@@ -130,7 +130,9 @@ public class RunningMedianHeap {
 	
 	public static void heapAndSort(int[] arr, int l)
 	{
-		//now sort it 
+		// tried the qSort but same performance as heapsort 
+		//qSort(arr, 0, l-1);
+		
 		int mid = l/2 -1;
 		for(int i=mid;i>=0;i--)
 		{
@@ -144,6 +146,31 @@ public class RunningMedianHeap {
 			arr[i] = tmp;
 			heapify(arr,0,i);
 		}
+	}
+	
+	public static void qSort(int[] arr,int low , int high)
+	{
+		if (low < high)
+		{
+			int pivot =high;
+			
+			int j = low-1;
+			for(int i=low;i<=high;i++)
+			{
+				if(arr[i]<=arr[pivot])
+				{
+					//swap with the j element which was big
+					j++;
+					int temp = arr[i];
+					arr[i] = arr[j];
+					arr[j] = temp;
+				}	    		
+			}
+
+			qSort(arr,low,j-1);
+			qSort(arr,j+1,high);	
+		}
+		
 	}
 	
 	public static void heapify(int[] arr, int start, int end)
