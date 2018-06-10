@@ -8,12 +8,15 @@ public class GraphAdjList
 	    // Adds an edge to an undirected graph
 	    static void addEdge(Graph graph, int src, int dest)
 	    {
-	        // Add an edge from src to dest. 
-	        graph.adjListArray[src].addFirst(dest);
-	         
+	        // Add an edge from src to dest. Edge is being added to the head of the LL, if we moved to the tail, a different order of result will appear.
+	        //graph.adjListArray[src].addFirst(dest);
+	        graph.adjListArray[src].addLast(dest);
+ 
+	        
 	        // Since graph is undirected, add an edge from dest
 	        // to src also
-	        graph.adjListArray[dest].addFirst(src);
+	        //graph.adjListArray[dest].addFirst(src);
+	        graph.adjListArray[dest].addLast(src);
 	    }
 	      
 	    // A utility function to print the adjacency list 

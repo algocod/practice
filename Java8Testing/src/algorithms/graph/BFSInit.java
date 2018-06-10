@@ -5,12 +5,17 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.concurrent.LinkedBlockingQueue;
 
+/**
+ * 
+ * @author hemant
+ *
+ */
 public class BFSInit 
 {
 	
 	public static void main (String[] args)
 	{
-		
+		/*
 		Graph graph = new Graph(5);
 		 GraphAdjList.addEdge(graph, 0, 1);
 		 GraphAdjList.addEdge(graph, 0, 4);
@@ -21,19 +26,21 @@ public class BFSInit
 		 GraphAdjList.addEdge(graph, 3, 4);
 	     
 		 printBFS(graph,1);
+		 //DFSInit.callDFS(graph, 5, 1);
+		 */
+
+		Graph graph = new Graph(4);
 		 
-/*
-		Graph g = new Graph(4);
-		 
-		GraphAdjList.addEdge(g,0, 1);
-		GraphAdjList.addEdge(g,0, 2);
-		GraphAdjList.addEdge(g,1, 2);
-		GraphAdjList.addEdge(g,2, 0);
-		GraphAdjList.addEdge(g,2, 3);
-		GraphAdjList.addEdge(g,3, 3);
+		GraphAdjList.addEdge(graph,0, 1);
+		GraphAdjList.addEdge(graph,0, 2);
+		GraphAdjList.addEdge(graph,1, 2);
+		GraphAdjList.addEdge(graph,2, 0);
+		GraphAdjList.addEdge(graph,2, 3);
+		GraphAdjList.addEdge(graph,3, 3);
 		
-		printBFS(g, 2);
-		*/
+		//printBFS(g, 2);
+		DFSInit.callDFS(graph, 4, 2);
+
 	}
 	
 	public static void printBFS(Graph g, int startNode)
