@@ -45,7 +45,7 @@ public class BinarySearchTree {
 		//System.out.println(gotit);
 		
 		// Sum of nodes that end up as K
-		NodesSumK.caller(mainRoot, 100);
+		NodesSumK.caller(mainRoot, 50);
 	}
 	
 	public static void addToTree(BSTNode rt , Integer val)
