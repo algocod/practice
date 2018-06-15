@@ -46,7 +46,12 @@ public class BSTNode {
 	}
 
 	
-	// Improve this function to write a traversal of a tree, this is what its trying to do. 
+	public Integer getLValue(Integer k)
+	{
+		return this.value;
+	}
+	
+	// Improved** this function to write a traversal of a tree, this is what its trying to do. 
 
 	public String print(BSTNode node)
 	{

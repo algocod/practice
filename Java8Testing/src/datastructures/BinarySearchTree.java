@@ -26,8 +26,8 @@ public class BinarySearchTree {
 			addToTree(mainRoot,arr[i]);
 		}
 		
-		String sysOut = print(mainRoot);
-		System.out.println(sysOut);
+		print(mainRoot);
+		//System.out.println(sysOut);
 
 		Stack<BSTNode> stck = new Stack<>();	
 		inOrderWithoutRecursion(mainRoot, stck);
@@ -43,6 +43,9 @@ public class BinarySearchTree {
 		//
 		//boolean gotit = find(mainRoot, 4);
 		//System.out.println(gotit);
+		
+		// Sum of nodes that end up as K
+		NodesSumK.caller(mainRoot, 100);
 	}
 	
 	public static void addToTree(BSTNode rt , Integer val)
@@ -66,17 +69,25 @@ public class BinarySearchTree {
 		
 	}
 	
-	public static String print(BSTNode node)
+	public static void print(BSTNode node)
 	{
-		if(node==null)
-			return "";
-		else
+		/*
+		if(node!=null)
 		{
 			// Pre -Order as in Root , Left and Right
 			//return node.getValue()+ "-"+print(node.getLeftNode())+"-"+print(node.getRightNode()) +"-" ;
 			// Post-Order Left Right and Root
-			return print(node.getLeftNode())+"-"+print(node.getRightNode()) +"-" +node.getValue();
+			return print(node.getLeftNode())+"-"+print(node.getRightNode()) +"-" +node.getValue();	
 		}
+		*/
+		if(node!=null)
+		{
+			System.out.println(node.getValue());
+			print(node.getLeftNode());
+			print(node.getRightNode());	
+		}
+		
+	
 	}
 	
 	// reverse a stack without using any other data strucutres
