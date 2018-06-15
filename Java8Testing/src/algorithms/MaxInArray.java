@@ -13,7 +13,7 @@ public class MaxInArray {
 		int premax=Integer.MAX_VALUE;
 		for (int i=0;i<mxI.length;i++)
 		{
-			max=0;
+			max=Integer.MIN_VALUE;
 			for (int j:arI)
 			{
 				if (j>max && j<premax)

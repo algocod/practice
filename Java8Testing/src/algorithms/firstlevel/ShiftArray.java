@@ -8,6 +8,11 @@ package algorithms.firstlevel;
   
  output
  6 7 8 1 2 3 4 5
+ 
+ // Left shift
+ 5 4
+1 2 3 4 5
+
  */
 import java.util.Scanner;
 
@@ -22,7 +27,7 @@ public class ShiftArray {
                a[a_i] = in.nextInt();
             }
         
-        int [] result = shiftArray(n, a, k);
+        int [] result = leftShiftArray(n, a, k);
         for (int i = 0;i<n;i++)
         {
         	System.out.print(result[i]+" ");
@@ -31,6 +36,7 @@ public class ShiftArray {
         
         }
 	
+	// right shift
 	public static int[] shiftArray(int n ,int[] arr, int k)
 	{
 		int[] kbit = new int[k];
@@ -55,5 +61,32 @@ public class ShiftArray {
 		
 		return arr;
 	}
+	
+	// left shift
+	public static int[] leftShiftArray(int n ,int[] arr, int k)
+	{
+		int[] kbit = new int[k];
+		
+		// copy the last k elements to a diff array
+		for(int i=0,j=0;i<k;i++,j++)
+		{
+			kbit[j] = arr[i];
+		}
+		
+		// now shift the elements 
+		for(int i=0,j=i+k;i<k && j<n;i++,j++)
+		{
+			arr[i]=arr[j];
+		}
+		
+		// now fill the last k elements from the array copied earlier
+		for (int i = n-k, j=0; i<n && j<k;i++,j++)
+		{
+			arr[i]=kbit[j];
+		}
+		
+		return arr;
+	}
+
 }
 	

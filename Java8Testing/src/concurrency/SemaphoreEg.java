@@ -36,9 +36,9 @@ public class SemaphoreEg {
 		{
 			final int j = i%4;
 			System.out.println("Thread Num--"+i);
-			//Callable<Integer> cl = ()-> {return getConn(j);};
+			Callable<Integer> cl = ()-> {return getConn(j);};
 			//Callable<Integer> cl = ()-> {return chkNonAtomic();}; // At threads above 5000, it shows inconsistency 
-			Callable<Integer> cl = ()-> {return chkAtomicity();};// The end result is always incremental
+			//Callable<Integer> cl = ()-> {return chkAtomicity();};// The end result is always incremental
 			clS.add(cl);
 		}
 		srV.invokeAll(clS);
@@ -53,7 +53,7 @@ public class SemaphoreEg {
 			sem.acquire();
 			System.out.println(arConn[i]+"going to give this object to Thread-- "+Thread.currentThread().getName());
 			System.out.println("Let me sleep");
-			//Thread.sleep(10000);
+			Thread.sleep(10000);
 			sem.release();	
 		}
 		catch(Exception e)
