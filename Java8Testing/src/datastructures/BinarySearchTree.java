@@ -10,6 +10,8 @@ import java.util.Stack;
 (c) Postorder (Left, Right, Root) : 4 5 2 3 1
 
 // Other problems include , Printing a tree wihtout recursion and Reversing a stack without any Data strucutres.
+// SUm of nodes K
+// Left View of a Binary tree
  * @author hemant
  *
  */
@@ -46,6 +48,10 @@ public class BinarySearchTree {
 		
 		// Sum of nodes that end up as K
 		NodesSumK.caller(mainRoot, 50);
+		
+		// Left View of a Binary tree printing
+		System.out.println("------------------LeftView of a Binary Tree---------------");
+		LeftViewOfBT.leftView(mainRoot);
 	}
 	
 	public static void addToTree(BSTNode rt , Integer val)
