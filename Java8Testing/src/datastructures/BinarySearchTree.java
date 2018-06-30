@@ -52,6 +52,9 @@ public class BinarySearchTree {
 		// Left View of a Binary tree printing
 		System.out.println("------------------LeftView of a Binary Tree---------------");
 		LeftViewOfBT.leftView(mainRoot);
+		
+		System.out.println("------------------Top K elements of a Binary Tree---------------");
+		TopKElementsInTree.getTopK(mainRoot, 5);
 	}
 	
 	public static void addToTree(BSTNode rt , Integer val)

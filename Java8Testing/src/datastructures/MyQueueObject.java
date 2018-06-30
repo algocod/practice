@@ -15,7 +15,12 @@ public class MyQueueObject {
 	private AtomicInteger popC= new AtomicInteger(0);
 	// This class implementation mimics the ArrayBlockingQueue which is different from LinkedBlockingQueue
 	BlockingQueue<Integer> blk = new ArrayBlockingQueue<>(20);
-	
+	/**
+	 * FIX THE QUEUE IMPLEMENTATION OF PUSH AND POP. THE CURRENT CODE WILL ONLY PUSH IF POP HAS CLEARED ALL THE QUEUE.
+	 * NULLL NULL 6 8 10 WILL NOT ACCEPT PUSH(12) ALTHOUGH THERE IS OPEN SPACE. 
+	 * AFTER EVERY PUSH PUT THE COUNTER BACK TO ZERO IF THE OBJECT IS NULL
+	 * 
+	 */
 	public MyQueueObject(int n )
 	{
 		arrInt = new Integer[n];

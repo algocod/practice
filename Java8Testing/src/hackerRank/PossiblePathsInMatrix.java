@@ -91,7 +91,8 @@ public class PossiblePathsInMatrix {
 		{
 			for(int n =1;n<=col;n++)
 				if(mat[m][n]==1)
-					dist[m][n] = dist[m][n-1] + dist[m-1][n];
+					dist[m][n] = dist[m][n-1] + dist[m-1][n];// The number of path to a certain vertix is sum of the paths from one left and one top, this is the 
+									// actual DP logic
 				else
 					dist[m][n]=0;
 		}

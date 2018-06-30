@@ -17,13 +17,16 @@ public class MyQeueue {
 		ExecutorService exr = Executors.newCachedThreadPool();
 		Callable<Integer> cl =null;
 		
-		MyQueueObject qObj = new MyQueueObject(200000);
+		MyQueueObject qObj = new MyQueueObject(5);
 		
-		for(int i=2;i<50000;i= i+2 )
+		for(int i=2;i<9;i= i+2 )
 		{
+			/*
 			final int j = i;
 			cl = ()-> {return qObj.push(j);};
 			exr.submit(cl);
+			*/
+			qObj.push(i);
 			//push(i);
 		}
 			
@@ -31,13 +34,18 @@ public class MyQeueue {
 		//System.out.println(Arrays.toString(qintArr));
 		
 		
-		for(int i=0;i<100;i++ )
+		for(int i=0;i<2;i++ )
 		{
+			/*
 			final int j = i;
 			cl = ()-> {return qObj.pop();};
 			exr.submit(cl);
+			*/
+			qObj.pop();
 		}
 		
+		qObj.push(10);
+		qObj.push(12);
 		//System.out.println(Arrays.toString(qintArr));
 
 	}

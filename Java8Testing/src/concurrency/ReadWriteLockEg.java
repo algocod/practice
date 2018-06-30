@@ -23,6 +23,7 @@ public class ReadWriteLockEg {
 			System.out.println("Adding "+i.toString());
 			System.out.println(arl.toString());
 			//System.out.println("Adding element by thread"+Thread.currentThread().getName());
+			System.out.println("Does the executing Thread have lock on the Lock Object ?"+Thread.holdsLock(wl));//check this out, perhaps you cant run it on Lock object itself
 			Thread.sleep(1000);
 			
 		}catch (InterruptedException ie)

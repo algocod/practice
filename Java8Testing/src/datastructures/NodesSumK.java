@@ -28,6 +28,8 @@ public class NodesSumK
 		interSum+=node.getValue();
 		int sum = stk.stream().map(node::getLValue).mapToInt(Integer::intValue).sum();
 		//int sum2 = stk.stream().mapToInt(i->i).sum();
+		// three ways to sum of nodes.
+		
 		if (interSum==k)
 		{
 			// print out the stack
@@ -50,7 +52,7 @@ public class NodesSumK
 		}
 		
 	
-		// three ways to sum of nodes.
+		
 		traverseTree(node.getLeftNode(), k ,stk, interSum);
 		traverseTree(node.getRightNode(), k,stk, interSum);
 		// stk.pop represents the behavior of the recursive function when the control moves to one level up . The stack is just being popeed

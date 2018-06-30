@@ -2,6 +2,10 @@ package algorithms.firstlevel;
 
 import java.util.Scanner;
 
+import org.junit.Test;
+
+import junit.framework.Assert;
+
 /**
  * Given five positive integers, find the minimum and maximum values that can be calculated 
  * by summing exactly four of the five integers. Then print the respective minimum and maximum values as a 
@@ -41,6 +45,12 @@ public class MinMaxSum {
 		}
 		
 		System.out.println(min+" "+max);
+	}
+	
+	@Test
+	public static void runUnitCase()
+	{
+		
 	}
 
 }
