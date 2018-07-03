@@ -1,3 +1,13 @@
 Prob : Find if a string can be created by inserting ab at any random position.
 Solu : This is the parenthesis problem so push in stack if there is 'a' and pop from stack if its 'b'. Success if stack is empty else false.
 
+Some usual plots :
+> Arrays where the cell can be incremented like 20th element a[20]++
+> For duplicates or pairs , usual choice is sorting , or hashmap
+> For storing key vals, one can use a 2d array or two single arrays where a[0] is key and b[0] is value or ab[0][1] where first col is key and second is value.
+> For integers, do a sum, or minus from a sum
+> Try partioning into half, one/third etc to reduce the problem size
+> For LRU, store the key in the hasmap and the actual Nodes as value. These nodes are part of a doubly linked list and you can take it out and fix it.
+> For recursive functions, look for the seed of the function, the initial condition , the exit condition .
+> For a SortedMap implementation, store the objects in a hashMap with key as as number and key/Frequency as Object. The objects will be inserted into a binary tree.
+> Once in a binary tree, you can get the top K elements from the tree.
