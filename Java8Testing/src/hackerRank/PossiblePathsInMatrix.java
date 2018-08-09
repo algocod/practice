@@ -51,14 +51,17 @@ public class PossiblePathsInMatrix {
 	}
 	/**
 	 * The method below is recursive way to find all possible paths through a matrix but the cost is high . As in every call to method breaks into two further calls.
-	 * This way it would be 2^n . The below program DOESNT take care of 0 and 1 in a matrix path which needs to be fixed.
+	 * This way it would be 2^n .
 	 */
 	public static int getTotalPathCount(int[][] mat, int row, int col, int endRow, int endCol)
 	{
 		if(row==endRow || col==endCol)
 			return 1;
 		
-		return getTotalPathCount(mat, row+1, col, endRow, endCol) + getTotalPathCount(mat, row, col+1, endRow, endCol);
+		// 1 and zero case condition taken care of , test it out as well.
+		return mat[row+1][col]==1?getTotalPathCount(mat, row+1, col, endRow, endCol):0 + mat[row][col+1]==1?getTotalPathCount(mat, row, col+1, endRow, endCol):0 ;
+		
+		//return getTotalPathCount(mat, row+1, col, endRow, endCol) + getTotalPathCount(mat, row, col+1, endRow, endCol);
 		
 	}
 	
@@ -116,7 +119,7 @@ public class PossiblePathsInMatrix {
 		
 		if(i==rows-1 && j==cols-1) // need to find the rest of the possible paths , perhaps another array for visit
 		{
-			totNumPaths++;
+			totNumPaths++; // this is just going to say 1 at the end as the moment it finds the vertex, it will return.
 			return;
 		}
 			

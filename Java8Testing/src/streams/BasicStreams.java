@@ -47,7 +47,7 @@ public class BasicStreams
 		Person p2 = new Person(31, "Helloo","F");
 		Person p3 = new Person(32, "Helllooo","M" );
 		
-		//Stream strObj = Stream.of(p1,p2,"hello"); // the stream is of the highest extended class, in this case its Stream<Objects>
+		//Stream strObj = Stream.of(p1,p2,"hello"); // the stream is of the highest common extended class, in this case its Stream<Objects>
 		Stream<Person> strObj = Stream.of(p1,p2,p3);
 		
 		strObj.filter(p->{ if(p.age>30) return true; else return false ;}).forEach(p->{System.out.println(p.name);});

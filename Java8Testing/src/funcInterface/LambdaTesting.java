@@ -18,8 +18,12 @@ public class LambdaTesting {
 		
 		Integer i = 4;
 		// Void lambda function
-		TestFuncInterface1 eg1 = () -> {System.out.println(3*4);};
+		TestFuncInterface1 eg1 = () -> {System.out.println(3*4);}; // there is auto assignment on the left side to the abstract function declared already in the interface.
+		//eg1.firstWork() = ()-> {Sysetm.out.println("Hello");}; method assignment doesnt work in Java yet. 
 		eg1.firstWork();
+		
+		ExtendFuncInter ext = new ExtendFuncInter();
+		//ext = ()->{Sysetm.out.println("Hello");}; By implementing hte FunctionalInterface the class is NO MORE a functional interface
 		
 		//Return Val lambda
 		TestFuncInfRetVal intret = (x,y) -> {return x*y ;};
