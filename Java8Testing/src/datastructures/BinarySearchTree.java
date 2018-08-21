@@ -55,6 +55,9 @@ public class BinarySearchTree {
 		
 		System.out.println("------------------Top K elements of a Binary Tree---------------");
 		TopKElementsInTree.getTopK(mainRoot, 5);
+		
+		System.out.println("------------------Sum of elements in a Binary Tree---------------");
+		System.out.println(SumOfAllNodes.getSumOfNodes(mainRoot));
 	}
 	
 	public static void addToTree(BSTNode rt , Integer val)
