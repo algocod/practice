@@ -9,7 +9,7 @@ import java.util.Stack;
 (b) Preorder (Root, Left, Right) : 1 2 4 5 3
 (c) Postorder (Left, Right, Root) : 4 5 2 3 1
 
-// Other problems include , Printing a tree wihtout recursion and Reversing a stack without any Data strucutres.
+// Other problems i\nclude , Printing a tree wihtout recursion and Reversing a stack without any Data strucutres.
 // SUm of nodes K
 // Left View of a Binary tree
  * @author hemant
@@ -58,6 +58,13 @@ public class BinarySearchTree {
 		
 		System.out.println("------------------Sum of elements in a Binary Tree---------------");
 		System.out.println(SumOfAllNodes.getSumOfNodes(mainRoot));
+		
+		System.out.println("------------------Elements in the path  from Root to the Node found in Stack ---------------");
+		AddRootToNodeInStack.printTheStack(mainRoot,50);
+		
+		System.out.println("-------------------------Average of Levels in a Binary Tree ---------------------------------");
+		System.out.println(AverageOfLevels.averageOfLevels(mainRoot).toString());
+
 	}
 	
 	public static void addToTree(BSTNode rt , Integer val)

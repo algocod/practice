@@ -11,3 +11,23 @@ Some usual plots :
 > For recursive functions, look for the seed of the function, the initial condition , the exit condition .
 > For a SortedMap implementation, store the objects in a hashMap with key as as number and key/Frequency as Object. The objects will be inserted into a binary tree.
 > Once in a binary tree, you can get the top K elements from the tree.
+
+EASY CODING
+To remove a negative check in a recursive function, its better to make a check while calling the function itself like below
+
+// Steps problem
+for(int i : intNumOfSteps)//intArr = {1,3,5}
+if(n-i)>0 result += callRecurSteps(n-i);
+In the step above recursive function call is being made which can be reduced further by memoization or storing pre-results.
+numways[n+1], to accommodate for the zero steps hence +1
+numways[0]=1
+for i =1 to n
+	total=0
+	  for j in (1,3,5)
+	    if(i-j)>=0 total +=numways[i-j]
+	  nums[i] = total;
+  return nums[n];
+if the steps was to take only 1 or 2 then
+Just store the last two values and keep computing them like
+[1,1] for 0 and 1 steps so for n=2 it will be a[0] +a[1]
+[2,1] and so on [2,3] , [5,3]
