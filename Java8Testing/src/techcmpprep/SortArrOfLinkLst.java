@@ -88,7 +88,7 @@ public class SortArrOfLinkLst
 		if(left.getFirst()!=null && right.getFirst()!=null)
 		{
 			int rank = left.getFirst().compareTo(right.getFirst());
-			rankIndex = rank<0?true:false;
+			rankIndex = rank<=0?true:false;
 		}
 		
 		int j = Math.min(left.size(), right.size());

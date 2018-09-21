@@ -24,7 +24,7 @@ public class RecursiveSumArr {
 		if (offset==ar.length)
 			return ar[offset-1];
 		else 
-			return ar[offset] + (sum (ar,offset+1));
+			return ar[offset] + sum (ar,offset+1);
 	}
 
 }

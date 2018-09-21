@@ -68,7 +68,8 @@ public class CheckBrackets {
 	                else 
 						stk.push(String.valueOf(a));
 				}
-	             
+	            //Object obj = new Object(); 
+				
 				else if(stk.size()>0 && (a==openCurly || a==openSq || a==openRnd))
 				{
 					stk.push(String.valueOf(a));

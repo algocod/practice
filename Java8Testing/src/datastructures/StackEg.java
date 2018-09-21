@@ -35,6 +35,7 @@ public class StackEg {
 		ls.add(rnWrite3); // no invokeALl for Runnables 
 		
 		exr.execute(rnWrite1);
+		//exr.submit(rnWrite1); Submit is also a method on ExecutorService to run Runnables. 
 		exr.execute(rnWrite2);
 		exr.execute(rnWrite3);
 		

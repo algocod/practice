@@ -1,11 +1,15 @@
 package cracking;
 
+import java.util.ArrayDeque;
+import java.util.Queue;
 import java.util.Scanner;
 
 public class RunningMedianHeap {
 
 	public static void main(String[] args) {
 
+		Queue<Integer> q = new ArrayDeque<>();
+		
 		Scanner in = new Scanner(System.in);
         /*
 		int n = in.nextInt();
