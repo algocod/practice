@@ -11,6 +11,8 @@ Some usual plots :
 > For recursive functions, look for the seed of the function, the initial condition , the exit condition .
 > For a SortedMap implementation, store the objects in a hashMap with key as as number and key/Frequency as Object. The objects will be inserted into a binary tree.
 > Once in a binary tree, you can get the top K elements from the tree.
+> Storing memoized values in a hashmap or an array for an index is a better solution.
+> How to store values in HashMap for a set of keys ? lets say a num total and index i : String.valueOf(total)+String.valueOf(i);
 
 EASY CODING
 To remove a negative check in a recursive function, its better to make a check while calling the function itself like below

@@ -4,7 +4,7 @@ import java.util.Stack;
 
 public class TopKElementsInTree 
 {
-	
+	public static int K = 0;
 	public static void getTopK(BSTNode node, int k)
 	{
 		Stack<BSTNode> stk = new Stack<>();
@@ -40,5 +40,33 @@ public class TopKElementsInTree
 		}
 			
 	}
-
+	
+	// This is an example of Reverse Post in-order traversal , like Right goes first then middle and then finally left.
+	public static void getTopKUsingRecursion(BSTNode node,int p)
+	{
+		if(node==null||K>p)
+			return;
+		getTopKUsingRecursion(node.getRightNode(),p);
+		K++;
+		if(K<=p)
+		{
+			System.out.println(node.getValue());	
+		}
+		getTopKUsingRecursion(node.getLeftNode(),p);
+		
+	}
+	
+	public static void getBottomKUsingRecursion(BSTNode node,int p)
+	{
+		if(node==null||K>p)
+			return;
+		getBottomKUsingRecursion(node.getLeftNode(),p);
+		K++;
+		if(K<=p)
+		{
+			System.out.println(node.getValue());	
+		}
+		getBottomKUsingRecursion(node.getRightNode(),p);
+		
+	}
 }

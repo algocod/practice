@@ -1,5 +1,8 @@
 package datastructures;
-
+/**
+ * The below example also illustrates backtracking process where in the element is searched for in each left node . If its not found then the corresponding
+ * right nodes are searched for. 
+ */
 import java.util.Stack;
 
 public class AddRootToNodeInStack 

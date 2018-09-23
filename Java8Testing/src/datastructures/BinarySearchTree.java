@@ -53,8 +53,14 @@ public class BinarySearchTree {
 		System.out.println("------------------LeftView of a Binary Tree---------------");
 		LeftViewOfBT.leftView(mainRoot);
 		
-		System.out.println("------------------Top K elements of a Binary Tree---------------");
-		TopKElementsInTree.getTopK(mainRoot, 5);
+		System.out.println("------------------Top K elements of a Binary Tree Using Iterative Method---------------");
+		TopKElementsInTree.getTopK(mainRoot, 3);
+		
+		System.out.println("------------------Top K elements of a Binary Tree Using Recursion Method---------------");
+		TopKElementsInTree.getTopKUsingRecursion(mainRoot,3);
+		
+		System.out.println("------------------Bottom K elements of a Binary Tree Using Recursion Method---------------");
+		TopKElementsInTree.getBottomKUsingRecursion(mainRoot,3);
 		
 		System.out.println("------------------Sum of elements in a Binary Tree---------------");
 		System.out.println(SumOfAllNodes.getSumOfNodes(mainRoot));
@@ -64,7 +70,18 @@ public class BinarySearchTree {
 		
 		System.out.println("-------------------------Average of Levels in a Binary Tree ---------------------------------");
 		System.out.println(AverageOfLevels.averageOfLevels(mainRoot).toString());
-
+		
+		// the below test cases have been commented out as they modify the parent Binary tree and render them as a linked list. 
+		/*
+		System.out.println("-------------------------Flatten to a LinkedList---------------------------------");
+		new FlattenBTtoLL().flatten(mainRoot);
+		print(mainRoot);
+		*/
+		/*
+		System.out.println("-------------------------Flatten to a Doubly LinkedList---------------------------------");
+		new FlattenBTtoLL().flattenToDoubleLL(mainRoot);
+		print(mainRoot);
+		*/
 	}
 	
 	public static void addToTree(BSTNode rt , Integer val)
