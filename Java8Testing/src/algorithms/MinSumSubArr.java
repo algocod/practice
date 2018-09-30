@@ -17,27 +17,12 @@ public class MinSumSubArr {
 			
 			if(minSum<gotMin)
 				gotMin=minSum;
-			
-			/* this is the solution for minimum sum across a lenght of k size array, refine it though
-			if(minSum>minSum+arI[j])
-			{
-				minSum = minSum+arI[j]-arI[j-1];
-				if(minSum<gotMin)
-					gotMin = minSum;
-			}
-				
-			else if (minSum<minSum+arI[j])
-			{
-				if(minSum<gotMin)
-					gotMin = minSum;
-				minSum = arI[j];
-			}
-				**/
+
 			System.out.println(minSum);
 
 		}
 	
-		System.out.println(minSum);
+		//System.out.println(minSum);
 		System.out.println(gotMin);
 
 	}

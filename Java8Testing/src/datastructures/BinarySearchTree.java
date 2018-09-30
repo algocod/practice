@@ -19,7 +19,9 @@ public class BinarySearchTree {
 	
 	public static void main(String[] args) {
 
-		Integer[] arr = {10,1,4,40,50};
+		//Integer[] arr = {10,1,4,40,50};
+		//Integer[] arr = {10,4,1,5,40};
+		Integer[] arr = {1,2,3,4,5};
 		BSTNode mainRoot = null;		
 		mainRoot = new BSTNode(arr[0]);
 		
@@ -70,6 +72,11 @@ public class BinarySearchTree {
 		
 		System.out.println("-------------------------Average of Levels in a Binary Tree ---------------------------------");
 		System.out.println(AverageOfLevels.averageOfLevels(mainRoot).toString());
+		
+		System.out.println("-------------------------Diameter of a Binary Tree ---------------------------------");
+		System.out.println(DiameterOfBinaryTree.getDiameter(mainRoot));
+		System.out.println(DiameterOfBinaryTree.maxL);
+		
 		
 		// the below test cases have been commented out as they modify the parent Binary tree and render them as a linked list. 
 		/*

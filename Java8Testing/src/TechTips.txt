@@ -13,6 +13,8 @@ Some usual plots :
 > Once in a binary tree, you can get the top K elements from the tree.
 > Storing memoized values in a hashmap or an array for an index is a better solution.
 > How to store values in HashMap for a set of keys ? lets say a num total and index i : String.valueOf(total)+String.valueOf(i);
+> For adding Binary numbers lets say Sum then result = Sum%2 and carry = Sum/2 
+
 
 EASY CODING
 To remove a negative check in a recursive function, its better to make a check while calling the function itself like below
