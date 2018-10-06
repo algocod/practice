@@ -55,7 +55,8 @@ public class MaxProfit {
 		
 	}
 	
-	// TODO solve it for less than n2 must be a n based solution, like get the max, and split hte array
+	// The key here is to understand that one can only hold one security at a time so to maximize profit , one has to buy and sell at every increase in price.
+	// 
 	public static int maxProfit(int[] prices) 
     {
         int total = 0;

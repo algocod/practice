@@ -120,5 +120,18 @@ public class CheckBrackets {
 			
 		return false;
 	}
+	
+	public static boolean findMatchingOptimal(Stack<Character> stk, char brak)
+	{
+		if(brak=='(')
+			stk.push(')');
+		else if(brak=='{')
+			stk.push('}');
+		else if (brak=='[')
+			stk.push(']');
+		
+		return(!stk.isEmpty() || stk.pop()!=brak);
+			
+	}
 
 }
