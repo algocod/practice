@@ -19,9 +19,9 @@ public class BinarySearchTree {
 	
 	public static void main(String[] args) {
 
-		//Integer[] arr = {10,1,4,40,50};
+		Integer[] arr = {10,1,4,40,50};
 		//Integer[] arr = {10,4,1,5,40};
-		Integer[] arr = {1,2,3,4,5};
+		//Integer[] arr = {1,2,3,4,5};
 		BSTNode mainRoot = null;		
 		mainRoot = new BSTNode(arr[0]);
 		
@@ -67,8 +67,10 @@ public class BinarySearchTree {
 		System.out.println("------------------Sum of elements in a Binary Tree---------------");
 		System.out.println(SumOfAllNodes.getSumOfNodes(mainRoot));
 		
-		System.out.println("------------------Elements in the path  from Root to the Node found in Stack ---------------");
+		System.out.println("------------------Elements in the path  with Node found first in Stack ---------------");
 		AddRootToNodeInStack.printTheStack(mainRoot,50);
+		
+
 		
 		System.out.println("-------------------------Average of Levels in a Binary Tree ---------------------------------");
 		System.out.println(AverageOfLevels.averageOfLevels(mainRoot).toString());

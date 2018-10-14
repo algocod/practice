@@ -24,6 +24,8 @@ public class DecodeString {
 		//return helper_numWays(sendData, sendData.length);
 	}
 
+	// The last K digits are being looked at and stored into the DpArr accordingly.
+	// One will reach the end solution first  and thats how the dpArr works. 
 	public static int helper_numWaysDP(char[] data, int k,Integer[] dpArr)
 	{
 		if(k==0)

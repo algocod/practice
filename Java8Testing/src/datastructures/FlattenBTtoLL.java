@@ -26,6 +26,4 @@ public void flattenToDoubleLL(BSTNode root) {
     prev = root;
 }
 
-
-
 }
