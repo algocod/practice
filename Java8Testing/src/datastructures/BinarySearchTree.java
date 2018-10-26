@@ -30,10 +30,12 @@ public class BinarySearchTree {
 			addToTree(mainRoot,arr[i]);
 		}
 		
+		System.out.println("------------------ Right order of a tree---------------");
 		print(mainRoot);
 		//System.out.println(sysOut);
 
 		Stack<BSTNode> stck = new Stack<>();	
+		System.out.println("------------------ In Order without recursion of a tree---------------");
 		inOrderWithoutRecursion(mainRoot, stck);
 		
 		Stack<Integer> stack = new Stack();
@@ -68,7 +70,7 @@ public class BinarySearchTree {
 		System.out.println(SumOfAllNodes.getSumOfNodes(mainRoot));
 		
 		System.out.println("------------------Elements in the path  with Node found first in Stack ---------------");
-		AddRootToNodeInStack.printTheStack(mainRoot,50);
+		//AddRootToNodeInStack.printTheStack(mainRoot,50);
 		
 
 		
@@ -86,11 +88,11 @@ public class BinarySearchTree {
 		new FlattenBTtoLL().flatten(mainRoot);
 		print(mainRoot);
 		*/
-		/*
+		
 		System.out.println("-------------------------Flatten to a Doubly LinkedList---------------------------------");
 		new FlattenBTtoLL().flattenToDoubleLL(mainRoot);
 		print(mainRoot);
-		*/
+		
 	}
 	
 	public static void addToTree(BSTNode rt , Integer val)
