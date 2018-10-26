@@ -49,14 +49,22 @@ public class MaxProfit {
 			}
 			System.out.println(totalProfit);
 			
-			
+			priceTick = new int[]{7,1,5,3,6,4};
+			maxProfit(priceTick);
 		}
+		
 	}
 	
-	// TODO solve it for less than n2 must be a n based solution, like get the max, and split hte array
-	public static int calcProfit(int[] price)
-	{
-		return 0 ;
-	}
+	// The key here is to understand that one can only hold one security at a time so to maximize profit , one has to buy and sell at every increase in price.
+	// 
+	public static int maxProfit(int[] prices) 
+    {
+        int total = 0;
+    for (int i=0; i< prices.length-1; i++) {
+        if (prices[i+1]>prices[i]) total += prices[i+1]-prices[i];
+    }
+    
+    return total;
+    }
 
 }

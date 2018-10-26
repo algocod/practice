@@ -4,7 +4,8 @@ public class MaxSumSubArr
 {
 	public static void main (String[] args)
 	{
-		int[] a = {-2, -3, 4, -1, -2, 1, 5, -3};
+		//int[] a = {-2, -3, 4, -1, -2, 1, 5, -3};
+		int [] a = {34, -50, 42, 14, -5, 86}; 
 		
 		int max = a[0];
 		int currMax = a[0];

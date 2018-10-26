@@ -8,11 +8,9 @@ public class AllComboOfString {
 		String sample = "ABCD";
 		HashSet<String> hst = new HashSet<>();
 		char[] arr = sample.toCharArray();
-		StringBuffer sbf = new StringBuffer();
 		for(int i=0;i<arr.length;i++)
 		{
 			char tmp = arr[i];
-			char curr = arr[0];
 			arr[i]=arr[0];
 			arr[0]=tmp;
 			String str = new String(arr, 0, 1);

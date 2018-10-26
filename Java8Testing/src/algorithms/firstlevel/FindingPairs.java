@@ -1,6 +1,7 @@
 package algorithms.firstlevel;
 /**
- * Find the total number of pairs available in the array for e.g. 10 20 30 20 10 20 there are two pairs 10,10 and 20,20 and in addition of 20 30 which are not an array
+ * Find the total number of pairs available in the array for e.g. 10 20 30 20 10 20 there are two pairs 10,10 and 20,20
+ *  and in addition of 20 30 which are not an array
 9
 10 20 20 10 10 30 50 10 20
 

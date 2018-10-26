@@ -2,6 +2,8 @@ package interviewQs;
 
 import java.util.Arrays;
 
+@Deprecated
+// This problem has been solved in a better way in AllComboOfString and AllPermutationOfStrings
 public class AllCombsString {
 
 	public static String str = "abcd";

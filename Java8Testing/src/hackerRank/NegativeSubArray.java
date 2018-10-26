@@ -22,6 +22,7 @@ public class NegativeSubArray {
 		}
 		
 		int nSubArr = 0;
+		// the below solution is in n2 . Improve it by sorting and then traversing from the negative numbers in logn.
 		for(int j =0;j<num;j++)
 		{
 			int subSum=0;

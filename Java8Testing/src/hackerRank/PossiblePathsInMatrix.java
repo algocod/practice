@@ -55,13 +55,16 @@ public class PossiblePathsInMatrix {
 	 */
 	public static int getTotalPathCount(int[][] mat, int row, int col, int endRow, int endCol)
 	{
+		if(mat[row][col]==0)
+			return 0;
 		if(row==endRow || col==endCol)
 			return 1;
 		
 		// 1 and zero case condition taken care of , test it out as well.
-		return mat[row+1][col]==1?getTotalPathCount(mat, row+1, col, endRow, endCol):0 + mat[row][col+1]==1?getTotalPathCount(mat, row, col+1, endRow, endCol):0 ;
+		//return mat[row+1][col]==1?getTotalPathCount(mat, row+1, col, endRow, endCol):0 + mat[row][col+1]==1?getTotalPathCount(mat, row, col+1, endRow, endCol):0 ;
 		
-		//return getTotalPathCount(mat, row+1, col, endRow, endCol) + getTotalPathCount(mat, row, col+1, endRow, endCol);
+		// the above return stmt is wrong but the below one needs to be rectified. 
+		return getTotalPathCount(mat, row+1, col, endRow, endCol) + getTotalPathCount(mat, row, col+1, endRow, endCol);
 		
 	}
 	
