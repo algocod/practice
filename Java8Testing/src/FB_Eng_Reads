@@ -1,0 +1,54 @@
+Facebook Engineering reads(move fast, be bold, focus on impact, be open, and build social value)
+Mobile in discussions
+Ads in System Design.
+-----------------------------------------------------------------------------------------------------------
+Key to Scalability are :
+> Cache is the first line of defense with a Write Thru Cache , over here one primary , rest slaves.
+> Replication is second : At cache level , it can be grouped per prefix, per pool name etc.  Replication at data centers or database level too where master
+	and slave are there.
+> Routing of requests based on user locale, search prefix, arranging of memory based on complexity of calculation, pre heating of cache etc. 
+
+
+-----------------------------------------------------------------------------------------------------------------
+To manage latency on local and remote networks, push through a bundle of writes or reads, similar to what happened on Virtual DOM update in ReactJS.
+Write through replicated caches are the key.
+While writing in cache , make it available to read ONLY when the actual database write has returned successfully.
+While writing , Master Slave is preferred where in writes occur ONLY in master, replicated to slaves 
+Once written in database, the logs can be listened to and sent back to cache to invalidate and update. This process  can be repeated any number of times 
+based on the time frame required so its fault tolerant. 
+Data centers have full copies of data , its NOT partitioned.
+Memcache is distributed cache on nodes and servers to connect while Redis is In-Memory , RAM bound cache.
+--------------------------------ZippyDB aka RocksDB built on Google open source called LevelDB---------------------------------
+Unique key value storage system at FB.
+RocksDB builds on LevelDB, Google's open source key value database library, to satisfy several goals:
+
+Scales to run on servers with many CPU cores.
+Uses fast storage efficiently.
+Is flexible to allow for innovation.
+Supports IO-bound, in-memory, and write-once workloads.
+
+----------------------------------------------------------Akkio----------------------------------------------------------
+State Machine : Managing complex deployments via State machine where SM maintains the state of different VMs and the Deployment process just keeps checking
+whether the machine is in a desired state before proceeding with the next deployment.
+
+Akkio(Data Placement Service) : Data was replicated at all data centers which had huge cost on network for replication and high latency costs.
+This was resolved by Akkio which stores mapping for a user with strong locale info. A user particularly access FB from a certain region or to be more specific
+three servers in the region for primary and backup. 
+Metadata is stored about user access pattern for the last three to ten days.  
+These are key aspect of discussing scalability like adding meta data and using it to re-route requests to the right server.
+
+Akkio helps reduce data set duplication by splitting the data sets into logical units with strong locality. The units are then stored in regions close to 
+where the information is typically accessed. For example, if someone on Facebook accesses News Feed on a daily basis from Eugene, Oregon, it is likely that 
+a copy is stored in our data center in Oregon, with two additional copies in Utah and New Mexico. The three data centers are in proximity to one another,
+ providing for comparable end user latencies in case of regular traffic shifts, as well as disaster recovery. By having Akkio optimize where to store these 
+ copies — rather than storing copies in every region — we can reduce storage and drastically drive down the cross-region network usage caused by data 
+ replication and save significant network capacity.
+
+Most people accessing Facebook stay within a small, fairly predictable group of no more than two or three regions. To satisfy fault tolerance requirements,
+ we typically need a few copies, spread to three regions. Using fewer copies not only reduces our storage footprint and cross-data center traffic, but for 
+ each new region going forward, it also eliminates the need for additional capacity to maintain our data access service level agreements. We can simply move 
+ capacity from existing regions to the new region. These returns and added efficiency have been impressive at the Facebook size and scale; it is unlikely that 
+ smaller organizations would have the same results.
+
+
+----------------------------------------------------------Akkio----------------------------------------------------------
