@@ -1,4 +1,5 @@
 package techcmpprep;
+import java.util.*;
 
 public class AllPermutationOfStrings {
 
@@ -8,6 +9,9 @@ public class AllPermutationOfStrings {
 		char[] arr = sample.toCharArray();
 		char[] subset = new char[arr.length];
 		allCombo(arr,subset,0);
+		int[] arrI = {1,2,3};
+		getAllComboIterative(arrI);
+		subsets(arrI);
 	}
 	
 	public static void allCombo(char[] arr, char[] subset,int i)
@@ -24,13 +28,50 @@ public class AllPermutationOfStrings {
 		
 		else
 		{
-			subset[i] = ' ';
+			// the new subset is formed either with the next character or WITHOUT it hence the null character .
+			subset[i] = '\u0000';
 			allCombo(arr, subset, i+1);
 			subset[i] = arr[i];
 			allCombo(arr,subset,i+1);	
 		}
 		
 		
+	}
+	/**
+	 * Iterate over each item, add it to each element of already existing answer set and then add back to the answer like this :
+	 * {},{1} , iterate over 2 and add 2 to each {2}{1,2} and now addd this to previous so {}{1} + {2}{1,2}
+	 * @param S
+	 */
+	public static void getAllComboIterative(int[] S)
+	{
+	        List<List<Integer>> res = new ArrayList<>();
+	        res.add(new ArrayList<Integer>());
+	        for(int i : S) {
+	            List<List<Integer>> tmp = new ArrayList<>();
+	            // For every new element , all existing sets within the parent answer is being added by this new num, looks like n2 solution
+	            for(List<Integer> sub : res) {
+	                List<Integer> a = new ArrayList<>(sub);
+	                a.add(i);
+	                tmp.add(a);
+	            }
+	            res.addAll(tmp);
+	        }
+	}
+	
+	public static List<List<Integer>> subsets(int[] nums) {
+	    List<List<Integer>> list = new ArrayList<>();
+	    Arrays.sort(nums);
+	    backtrack(list, new ArrayList<>(), nums, 0);
+	    return list;
+	}
+
+	public static void backtrack(List<List<Integer>> list , List<Integer> tempList, int [] nums, int start){
+	    list.add(new ArrayList<>(tempList));
+	    for(int i = start; i < nums.length; i++){
+	        tempList.add(nums[i]);
+	        backtrack(list, tempList, nums, i + 1);
+	        tempList.remove(tempList.size() - 1);
+	    }
 	}
 
 }
