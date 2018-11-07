@@ -1,13 +1,52 @@
 Facebook Engineering reads(move fast, be bold, focus on impact, be open, and build social value)
 Mobile in discussions
 Ads in System Design.
+
+------------------------------------------Nature of DATA--------------------------------------------------
+Nature of INput data is key.
+Data can be divided into types, text,messages,photos.
+What is the data, its usersRegion, consistency,manipulationRW,throughput, most of use cases UCMT
+How the data to be cached, stored in Database, replicated for DR, availablility
+Where does most of the use cases of data lie
+Batching of Writes is a KEY time saver in most of FB cases.
+Two aspects : Data storage  AND Computing 
+Data Center includes : Database, Memcache, any other tools for that particular regions.
+Diagonastics to check on a certain End Point usage , its peak usage or cpu consumption.
+Tool for profiling which gives the function chart and the time consumed in each.
+STOP the server to server communication for scalability.
+
+------------------------------------------Nature of DATA--------------------------------------------------
+
+
+--------------------------------------------------------------FB Specifics------------------------------------------------------------------------
+
+The general theme in FB to put markers, or flags to keep track of writes or dirty cache, or using routers suggests : Multiple steps can have impact on performance
+but makes the system more configurable and scalable.
+FB uses leases in Memcache for a Miss. for e.g. when a keyVal is not presnt, it gets a lease and goes to the database and while this  is happening another read comes through 
+as the cacheEntry is marked as leased it has a choice of either to wait for fresh data or take the stale data. 
+Btw...use Delete and Add instead of a set operation. The delete and Add can be played mutliple times in case of failures. 
+The right memory slab for FB is 2 ^1.3 instead of the general 2^n
+
+FB has nice little checks ot make sure database access is minimized, like
+> check if some other ops has gone for a same read in case of a cache miss, if yes then wait.
+> in case of database set operations when there is a miss, a LeaseId is returned back to the cache which tags the latest value in database.
+> If the value is being set in another cache in case of a miss, then check for the valid LeaseID , if latest then allow else disallow.
+-- Seems like a versioning thing, keep track of the latest version on every update and put it in cache ONLY if its the latest version. 
+
+--------------------------------------------------------------FB Specifics------------------------------------------------------------------------
+
 -----------------------------------------------------------------------------------------------------------
 Key to Scalability are :
 > Cache is the first line of defense with a Write Thru Cache , over here one primary , rest slaves.
-> Replication is second : At cache level , it can be grouped per prefix, per pool name etc.  Replication at data centers or database level too where master
-	and slave are there.
+> At cache level , it can be grouped per prefix, per pool name etc.  Create level of caches like L1/L2 for CPU and group reads/writes.
+> Replication is second :  Replication at data centers or database level too where master and slave are there.
 > Routing of requests based on user locale, search prefix, arranging of memory based on complexity of calculation, pre heating of cache etc. 
-
+> Can have a flexible solution like for certain searches go to MemCache while for other complex timelines go to SQL database.
+> HBase and RocksDB are quite write intensive databases. RocksDB is NoSql DB but its NOT distributed.
+> What is the nature of data, like timeline of an individual which is pretty much a silo set of data . So like your 2012 timeline on FB is Not going to change
+so it can be calculated and stored on the cache.
+> Try creating components around data and models.
+> Group reads and writes to reduce Remote Calls.
 
 -----------------------------------------------------------------------------------------------------------------
 To manage latency on local and remote networks, push through a bundle of writes or reads, similar to what happened on Virtual DOM update in ReactJS.
