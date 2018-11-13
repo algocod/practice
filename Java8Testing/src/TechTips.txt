@@ -8,16 +8,16 @@ Some usual plots :
 > For integers, do a sum, or minus from a sum
 > Try partioning into half, one/third etc to reduce the problem size
 > For LRU, store the key in the hasmap and the actual Nodes as value. These nodes are part of a doubly linked list and you can take it out and fix it.
+> For Least Frequently Used, use a min heap
 > For recursive functions, look for the seed of the function, the initial condition , the exit condition .
-> For a SortedMap implementation, store the objects in a hashMap with key as as number and key/Frequency as Object. The objects will be inserted into a binary tree.
-> Once in a binary tree, you can get the top K elements from the tree.
 > Storing memoized values in a hashmap or an array for an index is a better solution.
 > How to store values in HashMap for a set of keys ? lets say a num total and index i : String.valueOf(total)+String.valueOf(i);
 > For adding Binary numbers lets say Sum then result = Sum%2 and carry = Sum/2
 > For finding duplicates in an array, HashMap or HashSet is the best, if only k elements then remove on addition of next element.
 > TreeMap/Set is a self balanced BST.
 > For the max Profit in an array of prices: Start looking from the end of the array CurrMax = Max(cmax,price[n]), profit = cmax-price[i] , pmax = Max(pmax,profit)
-> To get a max out of an array try looking from the right direction.  
+> To get a max out of an array try looking from the right direction.
+> To rotate an array, first find out the new co-ordinates based on the starting like new_i,new_j = rotate(i,j);  
 > Min window of a matching given String in a big String. Use Hashmap to confirm if all of the pattern elements are present, if a window is found then try minimizing it
 and post that, keep looking for another window.
 > Celebrity in a room where she doesnt know anybody but rest everybody knows her using min amount of function calls. Trick here is to use the boolean answer from

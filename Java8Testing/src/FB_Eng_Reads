@@ -27,7 +27,7 @@ as the cacheEntry is marked as leased it has a choice of either to wait for fres
 Btw...use Delete and Add instead of a set operation. The delete and Add can be played mutliple times in case of failures. 
 The right memory slab for FB is 2 ^1.3 instead of the general 2^n
 
-FB has nice little checks ot make sure database access is minimized, like
+FB has nice little checks to make sure database access is minimized, like
 > check if some other ops has gone for a same read in case of a cache miss, if yes then wait.
 > in case of database set operations when there is a miss, a LeaseId is returned back to the cache which tags the latest value in database.
 > If the value is being set in another cache in case of a miss, then check for the valid LeaseID , if latest then allow else disallow.

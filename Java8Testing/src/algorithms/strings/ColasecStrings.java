@@ -3,7 +3,6 @@ package algorithms.strings;
 public class ColasecStrings {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		String result = colasec("ABBBBBBAACCC");
 		System.out.println(result);
 	}
