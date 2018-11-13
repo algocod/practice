@@ -12,6 +12,9 @@ public class AllPermutationOfStrings {
 		int[] arrI = {1,2,3};
 		getAllComboIterative(arrI);
 		subsets(arrI);
+		subsetsSimple(arrI);
+		int[] dups = {1,2,2};
+		subsetsWithDup(dups);
 	}
 	
 	public static void allCombo(char[] arr, char[] subset,int i)
@@ -57,7 +60,7 @@ public class AllPermutationOfStrings {
 	            res.addAll(tmp);
 	        }
 	}
-	
+	//////////////////////////////////////////////////////////////////////////
 	public static List<List<Integer>> subsets(int[] nums) {
 	    List<List<Integer>> list = new ArrayList<>();
 	    Arrays.sort(nums);
@@ -73,5 +76,55 @@ public class AllPermutationOfStrings {
 	        tempList.remove(tempList.size() - 1);
 	    }
 	}
+	
+	//////////////////////////////////////////////////////////////////////////
 
+    public static List<List<Integer>> subsetsSimple(int[] nums)
+    {
+        ArrayList<List<Integer>> arl = new ArrayList<>();
+        List<Integer> li = new ArrayList<Integer>();
+        arl.add(new ArrayList<Integer>());
+        recurWithJavaApi(arl,li,nums,0);
+        return arl;
+    }
+    
+    public static void recurWithJavaApi(ArrayList<List<Integer>> arl, List<Integer> li,int[] nums, int start)
+    {
+        if(start>=nums.length)
+            return;
+        arl.add(li);
+        recurWithJavaApi(arl,new ArrayList<Integer>(li),nums,start+1);
+        li.add(nums[start]);
+        recurWithJavaApi(arl,new ArrayList<Integer>(li),nums,start+1);
+    }
+	
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    
+    public static List<List<Integer>> subsetsWithDup(int[] nums)
+    {
+        HashSet<List<Integer>> hst = new HashSet<>();
+        List<Integer> li = new ArrayList<Integer>();
+        hst.add(new ArrayList<Integer>());
+        recurWithJavaApi(hst,li,nums,0);
+        ArrayList<List<Integer>> arl = new ArrayList<>(hst);
+        return arl;
+    }
+    
+    public static void recurWithJavaApi(HashSet<List<Integer>> hst, List<Integer> li,int[] nums, int start)
+    {
+        if(start==nums.length)
+        {
+        	hst.add(li);
+        	return;
+        }
+            
+        recurWithJavaApi(hst,new ArrayList<Integer>(li),nums,start+1);
+        if(start<nums.length && nums[start]!=nums[start+1])
+        {
+        	li.add(nums[start]);
+            recurWithJavaApi(hst,new ArrayList<Integer>(li),nums,start+1);	
+        }
+        
+    }
+	
 }
