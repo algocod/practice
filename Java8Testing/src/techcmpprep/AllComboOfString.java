@@ -7,6 +7,8 @@ public class AllComboOfString {
 	public static void main(String[] args) {
 		String sample = "ABCD";
 		HashSet<String> hst = new HashSet<>();
+		HashMap<Character,Character> hmp = new HashMap<>();
+		
 		char[] arr = sample.toCharArray();
 		for(int i=0;i<arr.length;i++)
 		{

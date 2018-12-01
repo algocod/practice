@@ -28,6 +28,16 @@ public class MaxInArray {
 		}
 		System.out.println(Arrays.toString(mxI));
 		usePriorityQ(arI,3);
+		PriorityQueue<Integer> pq = new PriorityQueue<>();// Default PQ is a min PQ
+		for(Integer i : arI)
+			pq.add(i);
+		System.out.println(pq.toString());
+		System.out.println(pq.poll());
+		PriorityQueue<Integer> pqmax = new PriorityQueue<>((a,b)->a<b?1:-1);
+		for(Integer i : arI)
+			pqmax.add(i);
+		System.out.println(pqmax.toString());
+		System.out.println(pqmax.poll());
 	}
 	
 	// Get the max k elements 
