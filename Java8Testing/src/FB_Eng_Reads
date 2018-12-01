@@ -5,7 +5,7 @@ Ads in System Design.
 ------------------------------------------Nature of DATA--------------------------------------------------
 Nature of INput data is key.
 Data can be divided into types, text,messages,photos.
-What is the data, its usersRegion, consistency,manipulationRW,throughput, most of use cases UCMT
+What is the data, its usersRegion, consistency,manipulationRW,throughput, most of use cases UCCMT(Use Cases,Consistency,Manipulation,Throughput/Tradeoffs)
 How the data to be cached, stored in Database, replicated for DR, availablility
 Where does most of the use cases of data lie
 Batching of Writes is a KEY time saver in most of FB cases.
