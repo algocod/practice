@@ -26,7 +26,6 @@ public class StepsProblem
 	
 		public static void main(String[] args)
 		{
-			List<String> lst = new LinkedList<>();
 			Integer[] mem = new Integer[30+1];
 			mem[0]=1;
 			mem[1] =1;

@@ -1,6 +1,8 @@
 Prob : Find if a string can be created by inserting ab at any random position.
 Solu : This is the parenthesis problem so push in stack if there is 'a' and pop from stack if its 'b'. Success if stack is empty else false.
 
+Find solid squares in a grid
+
 Some usual plots :
 > Arrays where the cell can be incremented like 20th element a[20]++
 > For duplicates or pairs , usual choice is sorting , or hashmap
