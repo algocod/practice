@@ -52,7 +52,7 @@ public class CheckBrackets {
 	      
 	      while (sc.hasNext()) {
 	         String input=sc.next();
-	         Stack<String> stk = new Stack<String>();  
+	         Stack<String> stk = new Stack<String>();
 	         boolean isCorrect = false;
 	         for(char a : input.toCharArray())
 			{
@@ -104,7 +104,8 @@ public class CheckBrackets {
 				
 			}
 	          
-	          System.out.println(isCorrect);
+	          System.out.println(CheckParenthesesOptimal.callOptimal(input)+"---"+isCorrect);
+	          //System.out.println("Optimal----"+CheckParenthesesOptimal.callOptimal(input));
 	          
 	      }
 	    }
@@ -129,7 +130,7 @@ public class CheckBrackets {
 			stk.push('}');
 		else if (brak=='[')
 			stk.push(']');
-		
+
 		return(!stk.isEmpty() || stk.pop()!=brak);
 			
 	}
