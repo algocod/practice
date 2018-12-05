@@ -34,6 +34,8 @@ public class LongestSubStrWORepeatingChars {
 	 {
 		 int n = s.length();
 		 HashMap<Character,Integer> hmp = new HashMap<>();
+		 Iterator itr = hmp.entrySet().iterator();
+		 //char c = String.toString(j).toCharArray()[0];	
 		 int ans=0,i=0,j=0;
 		 while(i<n && j<n)
 		 {
