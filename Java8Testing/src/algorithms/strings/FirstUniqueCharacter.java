@@ -50,6 +50,8 @@ public class FirstUniqueCharacter {
         int temp2 =  hmpS.size() == 0 ? -1 : hmpS.entrySet().iterator().next().getValue();
         System.out.println(temp2);
         
+        // No need to loop through the enitre HashMap in order to get whos the first element in the sequence
+        // LinkedList perhaps above is the most optimal solution where elements found are entered by order in the linkedList.
         retVal= Integer.MAX_VALUE;
         for (Map.Entry<Character,Integer> entry : hmpS.entrySet()) 
         {
