@@ -61,6 +61,43 @@ public class SidewaysTravelPerfBTree {
             root = temp.getLeftNode();// go down to next level
         }      
     }
+	/*
+	 * Below is the third way of doing in addition to top and below
+	 * Keep a track of the elements at each level and keep connecting to them while recursing
+	 * Height of the tree to used to keep track of the elements to be pointed to at each level and this will work for all trees
+	 * The above solution works only for perfect binary trees. 
+	    public void connect(TreeLinkNode root) {
+        if(root==null)
+            return ;
+        
+        ArrayList<Stack<TreeLinkNode>> ast = new ArrayList<>();
+        connHelper(ast,root,1);
+        
+    }
+    
+    public void connHelper(ArrayList<Stack<TreeLinkNode>> ast,TreeLinkNode tln, int height)
+    {
+        if(tln==null)
+            return;
+        if(ast.size()<height)
+            ast.add(new Stack<TreeLinkNode>());
+        
+        
+        TreeLinkNode n = null;
+        if(ast.get(height-1).size()!=0)
+            n = ast.get(height-1).pop();
+        
+        tln.next = n;
+        ast.get(height-1).push(tln);
+        
+        connHelper(ast,tln.right,height+1);
+        connHelper(ast,tln.left,height+1);
+        
+    }
+	 
+	 
+	 */
+	
 	
 	/**
 	 * The lengthy way of chaining nodes side by side using a Queue to store same level nodes.
