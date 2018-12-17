@@ -12,7 +12,6 @@ public class AverageOfLevels
 	        Queue<BSTNode> q = new ArrayDeque<>();
 	        q.add(root);
 	        List<Double>  lstAvg = new ArrayList<>();
-	        
 	        while(!q.isEmpty())
 	        {
 	        	Queue<BSTNode> temp = new ArrayDeque<>();

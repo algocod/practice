@@ -14,15 +14,11 @@ public class NumbersByFrequency {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		HashMap<Integer,NumWithFreq> hmp = new HashMap<>();
-		HashMap<Integer,Integer> hmpI = new HashMap<>();
 		PriorityQueue<NumWithFreq> pq = new PriorityQueue<>((a,b)->a.freq<b.freq?1:-1);
-		PriorityQueue<Map.Entry<Integer, Integer>> pqe = new PriorityQueue<>((a,b)->b.getValue()<a.getValue()?1:-1);
 		int j = 0;
 		while(sc.hasNext()&&j<55)
 		{
 			int temp =sc.nextInt();
-			hmpI.put(temp,(hmpI.getOrDefault(temp, 0)+1));
-			//hmpI.entrySet().
 			if(hmp.containsKey(temp))
 			{
 				hmp.get(temp).incrementAndSetFreq();

@@ -54,7 +54,8 @@ public class DepthFirstSearch
         			int[][] visited = Arrays.stream(matrix).map(int[]::clone).toArray(int[][]::new);
         			currLen++;
         			visited[i][j]=2;
-        			//check for adjacent nodes        		
+        			//check for adjacent nodes
+        		
         			currLen = checkAdjNodes(matrix,visited,i,j,n,m,currLen);
         			if(currLen>maxLen)
         				maxLen = currLen;
