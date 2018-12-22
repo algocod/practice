@@ -10,7 +10,7 @@ public class StringFromTelephoneNum {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		String abc = "23478756544566";
+		String abc = "2347";
 		if(abc.isEmpty())
 			System.out.println("--");
 		Date dt = new Date();
@@ -19,12 +19,12 @@ public class StringFromTelephoneNum {
 		long end =  ZonedDateTime.now().toInstant().toEpochMilli();
 		long diff = end-start;
 		System.out.println("Time taken ----"+diff);
-		//System.out.println(result.toString());
+		System.out.println(result.toString());
 		long start1 = ZonedDateTime.now().toInstant().toEpochMilli();
 		List result1 = letterCombinationsLL(abc);
 		long end1 = ZonedDateTime.now().toInstant().toEpochMilli();
 		System.out.println("Time taken1111 ----"+(end1-start1));
-		//System.out.println(result1.toString());
+		System.out.println(result1.toString());
 	}
 
 	public static List<String> letterCombinations(String digits) 
@@ -77,6 +77,12 @@ public class StringFromTelephoneNum {
         	return new char[] {};
     }
     
+    /*
+     * THe below method is back tracking where all possible values are stored and then appended with all possible options one by one by removing them first.
+     * like add a , b c first then append each with next options d , e ,f => ad, ae, af, bd, be, bf, cd, ce, cf and so on.
+     * The while condition is on the lenght of the string , so if input is 4 char long, ultimately the anser is going to be 4 char long going from 0 to 3
+     * 
+     */
     public static List<String> letterCombinationsLL(String digits) {
 		LinkedList<String> ans = new LinkedList<String>();
 		if(digits.isEmpty()) return ans;

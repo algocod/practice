@@ -21,7 +21,7 @@ public class ExecutorExample {
 		  return new Person(36,"BAC","M");
 		}
 			};
-		// simple callable call and create a thread
+		// simple callable call and create a thread, the below method doesnt create a thread , its just method call on Callable object.
 		Person p = (Person)cl.call();
 		System.out.println(p.getAge());
 							
