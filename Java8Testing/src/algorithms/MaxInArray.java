@@ -1,6 +1,9 @@
 package algorithms;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
 import java.util.PriorityQueue;
 
 public class MaxInArray {
@@ -15,6 +18,7 @@ public class MaxInArray {
 		int mxI[] = new int[3];
 		int max = 0;
 		int premax=Integer.MAX_VALUE;
+		
 		for (int i=0;i<mxI.length;i++)
 		{
 			max=Integer.MIN_VALUE;
@@ -28,12 +32,33 @@ public class MaxInArray {
 		}
 		System.out.println(Arrays.toString(mxI));
 		usePriorityQ(arI,3);
+		PriorityQueue<Integer> pq = new PriorityQueue<>((a,b)->b<a?1:-1);// Default PQ is a min PQ
+		for(Integer i : arI)
+			pq.add(i);
+		System.out.println("testing PQ"+pq.toString());
+		System.out.println("testing PQ----"+pq.poll());
+		PriorityQueue<Integer> pqmax = new PriorityQueue<>((a,b)->a<b?1:-1);
+		//PriorityQueue<Map.Entry<Integer, Double>> pq = new PriorityQueue<>((a,b)->a.getValue()-b.getValue());
+		
+		for(Integer i : arI)
+			pqmax.add(i);
+		System.out.println(pqmax.toString());
+		System.out.println(pqmax.poll());
 	}
 	
 	// Get the max k elements 
 	public static void usePriorityQ(int[] arr,int k)
 	{
-		PriorityQueue<Integer> pq = new PriorityQueue<>(k,(a,b)-> a>=b?1:-1);
+		PriorityQueue<Integer> pq = new PriorityQueue<>((a,b)-> a>=b?1:-1);
+		
+		for(Integer a : arr)
+		{
+			pq.offer(a);
+			if(pq.size()>k)
+				pq.poll();
+		}
+		
+		/*
 		for(int i =0;i<arr.length;i++)
 		{
 			if(i<k)
@@ -51,8 +76,8 @@ public class MaxInArray {
 			}
 			
 		}
-		
-		System.out.println(pq.toString());
+		*/
+		System.out.println("Queue after addition "+pq.toString());
 		
 	}
 	

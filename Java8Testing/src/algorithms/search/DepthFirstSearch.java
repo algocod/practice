@@ -55,6 +55,7 @@ public class DepthFirstSearch
         			currLen++;
         			visited[i][j]=2;
         			//check for adjacent nodes
+        		
         			currLen = checkAdjNodes(matrix,visited,i,j,n,m,currLen);
         			if(currLen>maxLen)
         				maxLen = currLen;

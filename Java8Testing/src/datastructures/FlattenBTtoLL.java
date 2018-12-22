@@ -26,4 +26,27 @@ public void flattenToDoubleLL(BSTNode root) {
     prev = root;
 }
 
+/*
+ * The below is a better solution to understand, key is using the temp variable to point as well, like the Prev pointer in below
+ * 
+ * 
+public Node treeToDoublyList(Node root) 
+{
+    Node dummy = new Node(0,null,null);
+    prev = dummy;
+    flattenToDoubleLL(root);   
+    prev.right = dummy.right;
+    dummy.right.left = prev;
+    return dummy;
+}
+public void flattenToDoubleLL(Node root) {
+if (root == null)
+    return;
+flattenToDoubleLL(root.left);
+prev.right = root;// this is the key piece
+root.left = prev;
+prev = root;
+flattenToDoubleLL(root.right);
+}
+ */
 }

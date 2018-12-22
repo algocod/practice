@@ -6,7 +6,7 @@ import datastructures.BSTNode;
 
 public class ReverseLinkedList 
 {   
-	public static void main(args[])
+	public static void main(String args[])
 	{
 		LinkedList<Integer> l = new LinkedList<>();
 		

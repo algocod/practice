@@ -1,0 +1,93 @@
+Facebook Engineering reads(move fast, be bold, focus on impact, be open, and build social value)
+Mobile in discussions
+Ads in System Design.
+
+------------------------------------------Nature of DATA--------------------------------------------------
+Nature of INput data is key.
+Data can be divided into types, text,messages,photos.
+What is the data, its usersRegion, consistency,manipulationRW,throughput, most of use cases UCCMT(Use Cases,Consistency,Manipulation,Throughput/Tradeoffs)
+How the data to be cached, stored in Database, replicated for DR, availablility
+Where does most of the use cases of data lie
+Batching of Writes is a KEY time saver in most of FB cases.
+Two aspects : Data storage  AND Computing 
+Data Center includes : Database, Memcache, any other tools for that particular regions.
+Diagonastics to check on a certain End Point usage , its peak usage or cpu consumption.
+Tool for profiling which gives the function chart and the time consumed in each.
+STOP the server to server communication for scalability.
+
+------------------------------------------Nature of DATA--------------------------------------------------
+
+
+--------------------------------------------------------------FB Specifics------------------------------------------------------------------------
+
+The general theme in FB to put markers, or flags to keep track of writes or dirty cache, or using routers suggests : Multiple steps can have impact on performance
+but makes the system more configurable and scalable.
+FB uses leases in Memcache for a Miss. for e.g. when a keyVal is not presnt, it gets a lease and goes to the database and while this  is happening another read comes through 
+as the cacheEntry is marked as leased it has a choice of either to wait for fresh data or take the stale data. 
+Btw...use Delete and Add instead of a set operation. The delete and Add can be played mutliple times in case of failures. 
+The right memory slab for FB is 2 ^1.3 instead of the general 2^n
+
+FB has nice little checks to make sure database access is minimized, like
+> check if some other ops has gone for a same read in case of a cache miss, if yes then wait.
+> in case of database set operations when there is a miss, a LeaseId is returned back to the cache which tags the latest value in database.
+> If the value is being set in another cache in case of a miss, then check for the valid LeaseID , if latest then allow else disallow.
+-- Seems like a versioning thing, keep track of the latest version on every update and put it in cache ONLY if its the latest version. 
+
+--------------------------------------------------------------FB Specifics------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------------------------------
+Key to Scalability are :
+> Cache is the first line of defense with a Write Thru Cache , over here one primary , rest slaves.
+> At cache level , it can be grouped per prefix, per pool name etc.  Create level of caches like L1/L2 for CPU and group reads/writes.
+> Replication is second :  Replication at data centers or database level too where master and slave are there.
+> Routing of requests based on user locale, search prefix, arranging of memory based on complexity of calculation, pre heating of cache etc. 
+> Can have a flexible solution like for certain searches go to MemCache while for other complex timelines go to SQL database.
+> HBase and RocksDB are quite write intensive databases. RocksDB is NoSql DB but its NOT distributed.
+> What is the nature of data, like timeline of an individual which is pretty much a silo set of data . So like your 2012 timeline on FB is Not going to change
+so it can be calculated and stored on the cache.
+> Try creating components around data and models.
+> Group reads and writes to reduce Remote Calls.
+
+-----------------------------------------------------------------------------------------------------------------
+To manage latency on local and remote networks, push through a bundle of writes or reads, similar to what happened on Virtual DOM update in ReactJS.
+Write through replicated caches are the key.
+While writing in cache , make it available to read ONLY when the actual database write has returned successfully.
+While writing , Master Slave is preferred where in writes occur ONLY in master, replicated to slaves 
+Once written in database, the logs can be listened to and sent back to cache to invalidate and update. This process  can be repeated any number of times 
+based on the time frame required so its fault tolerant. 
+Data centers have full copies of data , its NOT partitioned.
+Memcache is distributed cache on nodes and servers to connect while Redis is In-Memory , RAM bound cache.
+--------------------------------ZippyDB aka RocksDB built on Google open source called LevelDB---------------------------------
+Unique key value storage system at FB.
+RocksDB builds on LevelDB, Google's open source key value database library, to satisfy several goals:
+
+Scales to run on servers with many CPU cores.
+Uses fast storage efficiently.
+Is flexible to allow for innovation.
+Supports IO-bound, in-memory, and write-once workloads.
+
+----------------------------------------------------------Akkio----------------------------------------------------------
+State Machine : Managing complex deployments via State machine where SM maintains the state of different VMs and the Deployment process just keeps checking
+whether the machine is in a desired state before proceeding with the next deployment.
+
+Akkio(Data Placement Service) : Data was replicated at all data centers which had huge cost on network for replication and high latency costs.
+This was resolved by Akkio which stores mapping for a user with strong locale info. A user particularly access FB from a certain region or to be more specific
+three servers in the region for primary and backup. 
+Metadata is stored about user access pattern for the last three to ten days.  
+These are key aspect of discussing scalability like adding meta data and using it to re-route requests to the right server.
+
+Akkio helps reduce data set duplication by splitting the data sets into logical units with strong locality. The units are then stored in regions close to 
+where the information is typically accessed. For example, if someone on Facebook accesses News Feed on a daily basis from Eugene, Oregon, it is likely that 
+a copy is stored in our data center in Oregon, with two additional copies in Utah and New Mexico. The three data centers are in proximity to one another,
+ providing for comparable end user latencies in case of regular traffic shifts, as well as disaster recovery. By having Akkio optimize where to store these 
+ copies — rather than storing copies in every region — we can reduce storage and drastically drive down the cross-region network usage caused by data 
+ replication and save significant network capacity.
+
+Most people accessing Facebook stay within a small, fairly predictable group of no more than two or three regions. To satisfy fault tolerance requirements,
+ we typically need a few copies, spread to three regions. Using fewer copies not only reduces our storage footprint and cross-data center traffic, but for 
+ each new region going forward, it also eliminates the need for additional capacity to maintain our data access service level agreements. We can simply move 
+ capacity from existing regions to the new region. These returns and added efficiency have been impressive at the Facebook size and scale; it is unlikely that 
+ smaller organizations would have the same results.
+
+
+----------------------------------------------------------Akkio----------------------------------------------------------

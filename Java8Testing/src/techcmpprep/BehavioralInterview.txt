@@ -1,0 +1,44 @@
+> I am a very good collaborator, pique interests in topics and get constructive feedback. Early in my career i figured out how to get people interested
+	/engaged in talks that they would otherwise be reluctant and i deploy this methodology time and again.
+	Did a struts vs Jato comparison and how senior people were so very receptive to the list of differences.
+	An innovative way to get feedback, experts Input etc.
+	Wanted to choose a framework of choice but also wanted a comprehensive feedback and benefits
+	Did a reactJs vs Angular comparison which went through like wildfire and suddenly there was a huge group discussing this out.
+		If no data updates then just use any framework
+		For a more beginner , use Angular 2 which comes as a overall framework.
+		ReactJs can be embedded into any such UI framework.
+		I came out much more knowledgable and had the right set of information to make decisions.
+		Able to produce a guideline for UI strategy.
+		Impact was :  
+		Cost savings as in using modern architecture than using Angular1 which would have been absolete in two years anyways.
+		Driving the flow towards component based environment which lead to more sharing.
+		Migration fromC# to HTML5 started , low cost and saved us money. 
+		The bank was set on the new age UIs and the different developers in the team had a handbook to read through.
+		light weight and real time data was made easily available on UI,
+		I made a light weight search grid with search params and a grid to bind with a json restful service.
+		Collaborate/Social Value: 
+		Having jump started the ReactJS discussions , I got more inputs on topics like NodeJs, housebuilt client to client chatting service. 
+		Entitlements sharing and some more.
+		Became popular in terms of providing advice on UI component with peers,juniors and seniors. 
+		One thing led to another and now engaged in moving other teams off the legacy UIs with ease and comfort.  
+		
+		Be Open: Listed out all the websites where I sourced info from to provide transparency. 
+		Be Bold and Move Fast : Decided quickly, built up a react website over the weekend, did some analysis of function calls from Chrome and metrics.  
+		Built a page with grid,  search and display data and handed out the stash url to different teams who wanted to jump on the transformation.
+
+		Recently I am popularizing the idea of real time messaging on front end using Websockets and Kafka for streaming data. 
+
+First I sold the idea of Differences between two parallel tech stacks.
+Then it motivated me further to prepare and prepare good with proper evidence.  More people in my team got interested and contributed as it sounded enticing 
+or might be cool .
+While I sold the idea to senior management and I prepped on it , by the time I was in my first session for TechTalk , I was quite well armed with information.
+> Prepped up sample demo pages in Reactjs, Angular1, C#, with different set of Grids, ag-grid, slickgrid, griddle.js
+> Get audience engaged in discussions.
+
+
+Failures: I believe in giving an individual , the right amount of space to explore all solutions/possiblities for a certain product/problem.
+The developers started coming up with new tech stack/suggestions every other week
+The deliverables quality suffered , delayed and there were outages. 
+Was able to relate to the cause and soon took actions
+Proper tracking through jira in terms of estimates, uat delivery date, test case acceptance. 
+AUtomated testing and regression results 

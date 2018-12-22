@@ -304,6 +304,13 @@ Each line  of the  subsequent lines contains three space-separated integers desc
  * @author hemant
  *
  */
+
+/**
+ * This question is to be solved by merging intervals. All of the above inputs are arrays of start and end points which need to be sorted first on starting index
+ * Once sorted on start index, start adding them to a stack and then keep merging them if they overlap
+ * @author hemant
+ *
+ */
 public class EmptyCellsGrid {
 
 	static long gridlandMetro(int n, int m, int k, int[][] track) {

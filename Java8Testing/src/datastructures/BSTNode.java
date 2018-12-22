@@ -5,6 +5,8 @@ public class BSTNode {
 	private Integer value = null;
 	private BSTNode Rnode = null;
 	private BSTNode Lnode = null;
+	// Adding this variable for a problem where nodes connect sideways to other nodes on same level.
+	public BSTNode next = null;
 	
 	public boolean isGreaterthanRoot(Integer comp)
 	{

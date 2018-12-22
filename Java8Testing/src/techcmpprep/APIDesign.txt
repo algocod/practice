@@ -1,0 +1,42 @@
+APIs can be among a company's greatest assets
+_ Customers invest heavily: buying, writing, learning
+_ Cost to stop using an API can be prohibitive
+_ Successful public APIs capture customers
+Public APIs are forever - one chance to get it right
+APIs should be ,Stateless 
+
+Good code is modular–each module has an API
+Thinking in terms of APIs improves code quality
+Easy to use, even without documentation
+Hard to misuse
+Easy to extend
+
+How to desing an API:
+Your job is to extract true requirements : Should take the form of use-cases
+Start with Short Spec–1 Page is Ideal: On agile basis , keep discussing it with a lot of people.
+
+Expect to make mistakes
+_ A few years of real-world use will flush them out
+_ Expect to evolve API
+
+Functionality should be easy to explain
+_ If it's hard to name, that's generally a bad sign
+_ Good names drive development
+_ Be amenable to splitting and merging modules
+When in doubt leave it out
+_ Functionality, classes, methods, parameters, etc.
+_ You can always add, but you can never remove
+Make classes and members as private as possible
+
+Code should read like prose
+ if (car.speed() > 2 * SPEED_LIMIT)
+ generateAlert("Watch out for cops!");
+ 
+ Document every class, interface, method,
+constructor, parameter, and exception
+Use Swagger for documentation.
+_ Class: what an instance represents
+_ Method: contract between method and its client
+_ Preconditions, postconditions, side-effects
+_ Parameter: indicate units, form, ownership
+

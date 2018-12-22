@@ -1,5 +1,8 @@
 package interviewQs;
 
+import java.awt.List;
+import java.util.LinkedList;
+
 /**
  * 5
 21
@@ -23,7 +26,6 @@ public class StepsProblem
 	
 		public static void main(String[] args)
 		{
-		
 			Integer[] mem = new Integer[30+1];
 			mem[0]=1;
 			mem[1] =1;

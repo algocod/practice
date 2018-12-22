@@ -4,7 +4,7 @@ package algorithms.strings;
 
 As an example, consider the string abaacdabd. If you delete the character a, you will be left with the string bcdbd. Now, removing the character c leaves you with a valid string bdbd having a length of 4. Removing either b or d at any point would not result in a valid string.
 
-Given a string , convert it to the longest possible string  made up only of altrenating characters. Print the length of string  on a new line. If no string  can be formed, print  instead.
+Given a string , convert it to the longest possible string  made up only of alternating characters. Print the length of string  on a new line. If no string  can be formed, print  instead.
 
 // REMAINS PARTIALLY SOLVED
  10
