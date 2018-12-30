@@ -10,8 +10,8 @@ public class XORPractice {
 
 	public static void main(String[] args) {
 		
-		int[] arr = {1,2,3,5,6,7};
-		int n = 7;
+		int[] arr = {1,2,3,5,6};
+		int n = 6, forprint = n;
 		int sumArr = 0;
 		int actualSum = 0;
 		
@@ -23,8 +23,10 @@ public class XORPractice {
 			n--;
 		}
 		
+		System.out.println("XOR of the array nums--  "+sumArr);
+		System.out.println("XOR of nums till "+ forprint +"--  "+actualSum);
 		int missingNum = sumArr^actualSum;
-		System.out.println(missingNum);
+		System.out.println("the missing number from array is  "+missingNum);
 		
 		// get last set bit from a number , lets try 7 which is 111 and then 6 110
 		int p =7,k=6;
