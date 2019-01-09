@@ -24,6 +24,8 @@ public class PossiblePathsInMatrix {
 1 1 1 1
 1 0 0 1
 
+try the below
+[[0,0,0,0],[0,1,0,0],[0,0,0,0],[0,0,1,0],[0,0,0,0]]
 
 @param args
 	 */

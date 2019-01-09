@@ -2,7 +2,8 @@ Prob : Find if a string can be created by inserting ab at any random position.
 Solu : This is the parenthesis problem so push in stack if there is 'a' and pop from stack if its 'b'. Success if stack is empty else false.
 
 Find solid squares in a grid
-
+> Anagrams of a string : First way is to do an ascii array and keep a count , this would be O(n) and keep doing the same on the other string
+	>> Other way is to sort the letters of the string and then compare them. If they are anagram of each other, they will match exactly.
 Some usual plots :
 > Arrays where the cell can be incremented like 20th element a[20]++
 > For duplicates or pairs , usual choice is sorting , or hashmap
