@@ -1,5 +1,10 @@
 package datastructures;
-
+/**
+ * The LL or DLL transformation of a BST is actually a traversal of all its nodes and its mostly In-Order that is L N R .
+ * This can also be done with extra space where all in order visited nodes can be stored in a stack or queue and then iterated over to connect to each other .
+ * @author hemant
+ *
+ */
 public class FlattenBTtoLL {
 	
 private BSTNode prev = null;
@@ -37,7 +42,7 @@ public Node treeToDoublyList(Node root)
     flattenToDoubleLL(root);   
     prev.right = dummy.right;
     dummy.right.left = prev;
-    return dummy;
+    return dummy.right; // dummy.right to point to the right head.
 }
 public void flattenToDoubleLL(Node root) {
 if (root == null)
