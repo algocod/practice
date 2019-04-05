@@ -23,6 +23,9 @@ public void flatten(BSTNode root) {
     prev = root;
 }
 
+/*
+ * This method is NOT in order , rather its POST ORDER.
+ */
 public void flattenToDoubleLL(BSTNode root) {
     if (root == null)
         return;
