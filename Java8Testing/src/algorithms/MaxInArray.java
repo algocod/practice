@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.PriorityQueue;
+import java.util.concurrent.DelayQueue;
 
 public class MaxInArray {
 
@@ -39,7 +40,13 @@ public class MaxInArray {
 		System.out.println("testing PQ----"+pq.poll());
 		PriorityQueue<Integer> pqmax = new PriorityQueue<>((a,b)->a<b?1:-1);
 		//PriorityQueue<Map.Entry<Integer, Double>> pq = new PriorityQueue<>((a,b)->a.getValue()-b.getValue());
-		
+		Double d = 9.0;
+		int ip = (int)Math.round(9.0) +1 ;
+		if(d<ip)
+		{
+			
+		}
+
 		for(Integer i : arI)
 			pqmax.add(i);
 		System.out.println(pqmax.toString());

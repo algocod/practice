@@ -35,6 +35,7 @@ public class SerializeAndDeSerBTree {
             return null;
             
         String[] input = data.split(",");
+        // LinkedList is being used so as to easily remove the node that is parsed. 
         List<String> inputList = new LinkedList<String>(Arrays.asList(input));
         return deser(inputList);
     }

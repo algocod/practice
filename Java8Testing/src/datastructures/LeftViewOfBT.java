@@ -32,7 +32,7 @@ public class LeftViewOfBT
             chk.add(ht);
         }
         
-        getRNodes(root.left,ht+1); 
+        getRNodes(root.left,ht+1); // Although the method name says RNode , we are passing the left node first hence becomes left view.
         getRNodes(root.right,ht+1);
         
     }
