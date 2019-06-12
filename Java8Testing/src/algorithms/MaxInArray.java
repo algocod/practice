@@ -56,6 +56,9 @@ public class MaxInArray {
 	// Get the max k elements 
 	public static void usePriorityQ(int[] arr,int k)
 	{
+		double[] dist = new double[5];
+        PriorityQueue<Integer> pqt = new PriorityQueue<>((i,j) -> dist[i]<dist[j]?1:-1);
+		
 		PriorityQueue<Integer> pq = new PriorityQueue<>((a,b)-> a>=b?1:-1);
 		
 		for(Integer a : arr)
