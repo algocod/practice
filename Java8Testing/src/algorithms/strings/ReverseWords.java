@@ -10,6 +10,10 @@ public class ReverseWords {
 		
 		String output2 = revIndexHelp(input, 0, input.length()-1);
 		System.out.println(output2);
+		
+		String inputP = "abrarba";
+		boolean palinCheck = palindromeRec(inputP.toCharArray(), 0, inputP.length()-1);
+		System.out.println(palinCheck);
 	}
 	
 	public static String reverseString(String s)
@@ -43,6 +47,20 @@ public class ReverseWords {
 		}
 		
 		return new String(arr);
+	}
+	/**
+	 * Palindrom function via recursion.
+	 * @param arr
+	 * @param start
+	 * @param end
+	 * @return
+	 */
+	public static boolean palindromeRec(char[] arr, int start, int end)
+	{
+		if(start>=end)
+			return true;
+		
+		return arr[start]!=arr[end]?false:palindromeRec(arr,++start,--end);
 	}
 	
 }
