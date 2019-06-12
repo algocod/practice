@@ -19,7 +19,11 @@ import java.util.Scanner;
 public class ShiftArray {
 
 	public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
+        
+		int nums[] = {1,2,3,4,5,6};
+		rotate(nums,2);
+		
+		Scanner in = new Scanner(System.in);
         int n = in.nextInt();
         int k = in.nextInt();
         int[] a = new int[n];
@@ -33,6 +37,8 @@ public class ShiftArray {
         	System.out.print(result[i]+" ");
         }
         in.close();
+        
+        
         
         }
 	
@@ -87,6 +93,28 @@ public class ShiftArray {
 		
 		return arr;
 	}
+	
+	/**
+	 * sharpen this method below
+	 * @param nums
+	 * @param k
+	 */
+    public  static void rotate(int[] nums, int k) 
+    {
+        int size = nums.length;
+        int temp = nums[0];
+        int next = 0;
+        
+        while(size>0)
+        {
+            next = (next +k )%nums.length;
+            int t = nums[next];
+            nums[next] = temp;
+            temp = t;
+            size--;
+        }
+        
+    }
 
 }
 	

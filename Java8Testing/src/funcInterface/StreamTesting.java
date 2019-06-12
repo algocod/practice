@@ -2,6 +2,7 @@ package funcInterface;
 
 import java.util.Date;
 import java.util.List;
+import java.util.OptionalDouble;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -11,6 +12,10 @@ public class StreamTesting {
 
 		Integer[] iAr = new Integer[]{1,2,3,4,5,6,7,8,9};
 		Stream<Integer> stream = Stream.of( iAr);
+		// Average
+		OptionalDouble db = stream.mapToInt(i -> i).average();
+		if(db.isPresent())
+			db.getAsDouble();
         List<Integer> aL = stream.filter(p -> p%2==0).collect(Collectors.toList());
         stream.close();
         //Stream<List<Integer>> stream2 = Stream.of( aL); Diff ways of streaming

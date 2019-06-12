@@ -2,7 +2,8 @@ Prob : Find if a string can be created by inserting ab at any random position.
 Solu : This is the parenthesis problem so push in stack if there is 'a' and pop from stack if its 'b'. Success if stack is empty else false.
 
 Find solid squares in a grid
-
+> Anagrams of a string : First way is to do an ascii array and keep a count , this would be O(n) and keep doing the same on the other string
+	>> Other way is to sort the letters of the string and then compare them. If they are anagram of each other, they will match exactly.
 Some usual plots :
 > Arrays where the cell can be incremented like 20th element a[20]++
 > For duplicates or pairs , usual choice is sorting , or hashmap
@@ -33,7 +34,14 @@ while (a < b)
         } 
   
 
+===============================HEAP TRICKS====================================
+pq.offer(a) // lets say pq is a min heap.
+pq.offer(-a) // this will create a max heap for the same set of values. 
+Helps to find median where one needs keep track of max element from left side and min element from right side.
+Skyline problem as well//dig on it.
 
+Heaps hard problems have one thing in common , they require a pre-sorting of inputs first, do this step and then add them to a heap OR
+you can sort using heap in the first step. Either ways, separating the problems in two parts makes it easier. 
 
 EASY CODING
 To remove a negative check in a recursive function, its better to make a check while calling the function itself like below

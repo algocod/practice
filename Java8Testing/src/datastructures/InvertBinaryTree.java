@@ -1,5 +1,10 @@
 package datastructures;
 
+/**
+ * This is a Pre-Order traversal of a tree that is NODE then LEFT and RIGHT.
+ * @author hemant
+ *
+ */
 public class InvertBinaryTree 
 {
 	

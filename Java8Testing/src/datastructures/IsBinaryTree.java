@@ -1,6 +1,11 @@
 package datastructures;
 
-
+/**
+ * This is a Pre Order traversal of a tree where the condition check starts from the root and moves to left and right , ONLY if true.
+ * 
+ * @author hemant
+ *
+ */
 public class IsBinaryTree {
 	
 public boolean isValidBSTHelper(BSTNode root, Integer upperL, Integer lowerL) {

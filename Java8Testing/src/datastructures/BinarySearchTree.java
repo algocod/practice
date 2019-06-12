@@ -78,7 +78,7 @@ public class BinarySearchTree {
 		System.out.println(AverageOfLevels.averageOfLevels(mainRoot).toString());
 		
 		System.out.println("-------------------------Diameter of a Binary Tree ---------------------------------");
-		System.out.println(DiameterOfBinaryTree.getDiameter(mainRoot));
+		//System.out.println(DiameterOfBinaryTree.getDiameter(mainRoot));
 		System.out.println(DiameterOfBinaryTree.maxL);
 		
 		

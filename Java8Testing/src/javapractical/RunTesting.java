@@ -10,7 +10,7 @@ public class RunTesting {
 		
 		Study tfsI = new TwoInterfaceProblem();
 		Health tfsI2 = new TwoInterfaceProblem();
-		
+		HashMap<Integer,Integer> hmp = new HashMap<>();
 		tfsI.workHard();
 		tfsI2.workHard();
 		
