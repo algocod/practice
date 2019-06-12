@@ -34,7 +34,14 @@ while (a < b)
         } 
   
 
+===============================HEAP TRICKS====================================
+pq.offer(a) // lets say pq is a min heap.
+pq.offer(-a) // this will create a max heap for the same set of values. 
+Helps to find median where one needs keep track of max element from left side and min element from right side.
+Skyline problem as well//dig on it.
 
+Heaps hard problems have one thing in common , they require a pre-sorting of inputs first, do this step and then add them to a heap OR
+you can sort using heap in the first step. Either ways, separating the problems in two parts makes it easier. 
 
 EASY CODING
 To remove a negative check in a recursive function, its better to make a check while calling the function itself like below
