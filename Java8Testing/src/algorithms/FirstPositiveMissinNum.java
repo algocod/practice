@@ -18,7 +18,6 @@ public class FirstPositiveMissinNum {
         {
             if(a>0)
             {
-                max = Math.max(a,max);
                 hst.add(a);
             }
             
