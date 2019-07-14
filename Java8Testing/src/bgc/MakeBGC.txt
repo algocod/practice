@@ -1,0 +1,5 @@
+Steps to build and run
+javac  ConnectingCitiesProblem
+java ConnectingCitiesProblem "city1" "city2"
+
+// Have attached sample input 
