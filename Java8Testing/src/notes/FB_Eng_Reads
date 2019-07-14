@@ -20,10 +20,10 @@ STOP the server to server communication for scalability.
 
 --------------------------------------------------------------FB Specifics------------------------------------------------------------------------
 
-The general theme in FB to put markers, or flags to keep track of writes or dirty cache, or using routers suggests : Multiple steps can have impact on performance
-but makes the system more configurable and scalable.
-FB uses leases in Memcache for a Miss. for e.g. when a keyVal is not presnt, it gets a lease and goes to the database and while this  is happening another read comes through 
-as the cacheEntry is marked as leased it has a choice of either to wait for fresh data or take the stale data. 
+The general theme in FB to put markers, or flags to keep track of writes or dirty cache, or using routers suggests : Multiple steps can have 
+impact on performance but makes the system more configurable and scalable.
+FB uses leases in Memcache for a Miss. for e.g. when a keyVal is not presnt, it gets a lease and goes to the database and while this  is happening 
+another read comes through  as the cacheEntry is marked as leased it has a choice of either to wait for fresh data or take the stale data. 
 Btw...use Delete and Add instead of a set operation. The delete and Add can be played mutliple times in case of failures. 
 The right memory slab for FB is 2 ^1.3 instead of the general 2^n
 
@@ -66,7 +66,7 @@ Uses fast storage efficiently.
 Is flexible to allow for innovation.
 Supports IO-bound, in-memory, and write-once workloads.
 
-----------------------------------------------------------Akkio----------------------------------------------------------
+----------------------------------------------------------Akkio and SM----------------------------------------------------------
 State Machine : Managing complex deployments via State machine where SM maintains the state of different VMs and the Deployment process just keeps checking
 whether the machine is in a desired state before proceeding with the next deployment.
 
