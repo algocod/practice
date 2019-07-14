@@ -12,7 +12,8 @@ public class WeightedBiGraph {
 		String[][] currInput = {
 				{"a","b","2"},
 				{"b","c","3"},
-				{"c","d","4"}
+				{"c","d","4"},
+				{"a","e","5"}
 		};
 		
 		HashMap<String,LinkedList<Edge>> hmp = new HashMap<>();
@@ -30,7 +31,7 @@ public class WeightedBiGraph {
 			
 		}
 		
-		String from = "a";
+		String from = "e";
 		String to =  "d";
 		
 		double rate = edgeHelper(from,to,hmp,visited);
