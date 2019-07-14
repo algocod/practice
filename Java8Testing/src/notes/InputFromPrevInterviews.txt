@@ -1,0 +1,28 @@
+Streaming data to be sorted and stored with instant access and logN max for top K search results.
+> PriorityQ is a makeshift solution which caters only to static input
+> For dynamic input , use TreeHashMap , which stores Key and value as Node that has value, left, right as Node. 
+TreeHashMap allows for instant access and the sorting is based on the Node.Value which allows for sorting
+Implement a Map of Key and OBject thats part of a MinHeap
+> FB : Add an element , given an entry Node in a single linked LinkedList
+> Serialize and De-serialize a Binary tree
+	preorder like node,left right with comma separate values and end points being written as null,
+	now parse the input to make it linkedList.
+	pop the first element that will be the Root of hte tree
+	makeTree(LinkedList ll)
+	if(ll.value=="null")
+	return null;
+	
+	String val = ll.pop().value();
+	Node n = new Node(val);
+	n.left = makeTree(ll);
+	n.right = makeTree(ll);
+	
+> Meeting Rooms needed given start and end times of different meetings. 
+	sort the input array by start time first
+	put it in a Min heap based on start time 
+	and if startT>endT of peek() then poll it out else add to the heap
+	size of heap is number of rooms required
+> Given a set of inputs like /,./../  use them to find the resultant directory , use a stack to store and pop it out
+> How to handle a scenario where people are wishing Happy Christmas to everybody on 25th December, the throughput and bottlenecks
+> How would you Design and API that gets data from the server that is lets say for a day, for a user for friends for months , latest comments etc.
+Use JSON input and metadata that keeps defining the end result. 
