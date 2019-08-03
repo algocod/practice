@@ -1,0 +1,16 @@
+//to compile
+javac AddeparQuestion 
+
+//to run
+java AddeparQuestion input_dir output_file
+
+
+Complexity Analysis of the Solution.
+Lets say there are k files with a total of n lines combined.
+
+Space Complexity : O(n) as everything is being stored
+Optimization : This can be optimized further by reading just a few files at a time and storing the sorted answer back to the file system.
+			   The above approach will reduce the Space taken to O(n/p) where p is the number of files in the batch.
+
+Time Complexity : Going through each line in the system will result in O(n) plus the sorting in heap which give logk 
+				  hence O(nlogk). Splitting the process into small batches will reduce it even further.
