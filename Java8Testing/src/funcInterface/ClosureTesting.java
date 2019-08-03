@@ -39,8 +39,8 @@ public class ClosureTesting {
 	    
 	    public static Function<String,Integer> convNumbers()
 	    {
-	    	//The below statement takes and input and then returns an output of Type Integer and that is what is the return function type of the method.
-	    	//return ()-> {return 2;}; this wont work as input needs to be INteger.
+	    	//The below statement takes String as  input and then returns an output of Type Integer and that is what is the return function type of the method.
+	    	//return ()-> {return 2;}; this wont work as input needs to be String.
 	    	return abc -> {return Integer.parseInt(abc);}; // 
 	    }
 	    
