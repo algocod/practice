@@ -34,7 +34,7 @@ public class FindWordsIn2DArray {
 	                        exist(board, i, j-1, word, ind+1) ||
 	                        exist(board, i, j+1, word, ind+1) ||
 	                        exist(board, i+1, j, word, ind+1);
-	    board[i][j] = word.charAt(ind);
+	    board[i][j] = word.charAt(ind); // setting character back is also a kind of backtracking.
 	    return result;
 	}
 }

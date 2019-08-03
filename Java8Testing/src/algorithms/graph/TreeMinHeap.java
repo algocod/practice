@@ -29,6 +29,9 @@ public class TreeMinHeap {
 		
 		System.out.println(hmp);
 		hmp.computeIfAbsent("2", k -> new Node("0",0)).updateValue(20);
+		// for IntegerValue you DONT need Atomic Integer
+		// hmp.put(key, hmp.getOrDefault(key,0)+1);
+		
 		pq.offer(pq.poll());
 		System.out.println(pq.peek());
 	}
