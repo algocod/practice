@@ -1,7 +1,9 @@
 package algorithms.graph;
 
 import java.util.Arrays;
-
+/**
+Given N cities and the cost of roads to connect them, find the minimum cost 
+**/
 public class KruskalAlgoMST {
 
 
@@ -70,7 +72,7 @@ public class KruskalAlgoMST {
         if(sx!=sy)
         {
             sets[sx] = sy; // making hte parent set of one element the same as another, in this case parent of x is now set as parent of y.
-            n--;
+            n--; // To keep count of the total number of groups, ultimately it should be one. 
         }
     }
     
