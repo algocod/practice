@@ -1,12 +1,24 @@
 package javapractical;
 
+import java.math.BigDecimal;
 import java.util.*;
+import java.util.stream.Stream;
 
 public class RunTesting {
 	
 	static final String TEXT = "I am a {0} account with {1,number,#} units of {2} currency";
 	public static void main(String[] args) {
 
+		BigDecimal bd1, bd2;     
+        // Assigning value into BigDecimal object       
+        bd1 = new BigDecimal("-36755");   
+        bd2 = new BigDecimal("63745");  
+        
+		BigDecimal[] arrBD = {bd1,bd2,null};
+		System.out.println("Stream testing");
+		Stream<BigDecimal> str = (Stream<BigDecimal>)Arrays.stream(arrBD);
+		str.filter( p -> p!=null).filter( p -> p .longValueExact()>0).forEach( p -> System.out.println(p.toString()));
+		/*
 		// Run the TwoInterface problem
 		char c='a';
 		int i=9;
@@ -24,8 +36,14 @@ public class RunTesting {
 		//int j=97;
 		//char ;
 		
-		
+		HashMap<Integer,List<Integer>> hmp = new HashMap<>();
+		HashMap<Integer,Integer> hmp1 = new HashMap<>();
+		for(Map.Entry<Integer,List<Integer>> mpe : hmp.entrySet())
+		{
+			
+		}
 				System.out.println(cc);
+		*/
 		//System.out.println(c+=c+i);
 		
 	//	List<BankAccount> accounts = new ArrayList<>(BankAccount);
@@ -43,6 +61,7 @@ public class RunTesting {
 		System.out.println(a);*/
 		//System.out.println(b);
 		//System.out.println(c);
+				
 	}
 
 	public int test(int a , int b) throws Exception
