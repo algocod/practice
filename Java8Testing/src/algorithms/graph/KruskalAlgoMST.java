@@ -1,9 +1,7 @@
 package algorithms.graph;
 
 import java.util.Arrays;
-/**
-Given N cities and the cost of roads to connect them, find the minimum cost 
-**/
+
 public class KruskalAlgoMST {
 
 
