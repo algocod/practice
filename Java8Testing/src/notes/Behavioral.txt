@@ -1,3 +1,51 @@
 Describe a challenging situation(non-tech) that you have faced and how did you resolve that?
 Working with difficult co-worker, do followups 
 Time when I had to convince co-workers
+-- Amazon is data driven so give statistics/metrics while giving out answers
+-- Tell story , as in Beginning- Middle and End with SItuation, Task/Action and Result in the end.
+-- Examples where took risk, succeeded/failed and how you grew after that 
+
+Describe with Examples 
+> HTML developer in GS but learned the entire Portfolio Management Theory and its implementation on Efficent Frontier graph.
+
+
+
+System Design:
+Ask questions and always keep client requirements in mind, whos the client
+Start writing requirements first on teh white board.
+Discuss Trade-Offs , memory vs performance etc. Compatibility, Scalability and maintainability.
+
+Order tracking system
+Design a map
+
+Parking lot 
+> Handling Ambiguity as in get all details for the problem and which part should we target
+	System design, Object design ,
+
+Is the lot a building/open space /cluster of buildings/levels /rectangle/circle/etc
+what volume are we talking about
+Multiple entrances/exits, dependencies between levels
+Prices : charge per size , actual car or the slot that is occupied
+Premium parking , handicapped users
+--- lets assume four sizes of parking lot----
+small, medium, large, xlarge Class Diagram below
+Abstract Vehicle : 
+		String :Licence plate, String color, String Size
+Other types of vehicles are going to inherit like Car, Bus,Truck and Motorcycle
+
+ParkingLot class
+methods Spot placeVehicle(Vehicle vh) -- it will assign a parking spot and return the spot class
+
+Class spot (long id, String size)
+
+Vehicle and spot can be stored in the database but for Interviews possible they will look for in memory DS so it comes to things like
+Assign empty spots, FIFO, LIFO , free up space etc.
+
+4 different stacks of open space as in Spots based on size like S,M,L,XL
+PlaceVehicle will inspect the stacks based on the size of the vehicle and assign a spot. Add the vehicle to the HashMap of occupied vehicles
+RemoveVehicle will remove the vehicle after checking in the four hashmaps and free up the spot and add it back to the stack. 
+
+Add Test cases finally to check some stuff .
+KISS : Keep it Simple Stupid.
+Avoid adding infra examples but give hints or reasoning like nosql or sql databases.
+Clarity Flexibility Knowledge
