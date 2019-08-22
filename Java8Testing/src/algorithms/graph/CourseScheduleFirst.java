@@ -1,10 +1,12 @@
 package algorithms.graph;
 
+import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 /**
  * There are a total of n courses you have to take, labeled from 0 to n-1.
@@ -35,7 +37,47 @@ public class CourseScheduleFirst {
 		// TODO Auto-generated method stub
 
 	}
-
+	
+	public boolean canFinishBFS(int numCourses, int[][] prerequisites) {
+	     
+        HashMap<Integer,LinkedList<Integer>>  adjList = new HashMap<>();
+        int[] inDegree = new int[numCourses]; // 0 to n-1 hence 
+        
+        for(int[] pre : prerequisites)
+        {
+            adjList.computeIfAbsent(pre[1], k -> new LinkedList<>()).add(pre[0]);
+            inDegree[pre[0]]++;
+        }
+        Queue<Integer> qu = new ArrayDeque<>();
+        for(int i =0; i<numCourses;i++)
+        {
+            if(inDegree[i]==0)
+                qu.offer(i); 
+        }
+        
+        if(qu.size()<1)
+            return false;
+        
+        int visited = 0;
+        
+        while(!qu.isEmpty())
+        {
+            int i = qu.poll();
+            visited++;
+            List<Integer> adj = adjList.get(i);
+            if(adj!=null)
+            {
+                for(int j : adj)
+                {
+                    inDegree[j]--;
+                    if(inDegree[j]==0)
+                        qu.offer(j);
+                }
+            }
+        }
+        
+        return visited==numCourses?true:false;
+    }
 	  public boolean canFinish(int numCourses, int[][] prerequisites)
 	    {
 	        // first construct the graph as in what courses can you do once you complete a particular course
