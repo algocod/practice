@@ -1,6 +1,16 @@
 Describe a challenging situation(non-tech) that you have faced and how did you resolve that?
 Working with difficult co-worker, do followups 
 Time when I had to convince co-workers
+Describe your most impactful project.
+Give an example of a tough or critical piece of feedback you received.
+Talk about a time you disagreed with a plan of action.
+Give me an example of when you showed initiative and took the lead.
+Tell me about one of your recent projects.
+Tell me about a decision for which data and analysis weren’t sufficient to provide the right course and you had to rely on your judgment and instincts.
+Tell me about a time when you were wrong.
+Tell me about a time when you had to step up and disagree with a team members approach.
+If your direct manager was instructing you to do something you disagreed with, how would you handle it?
+
 -- Amazon is data driven so give statistics/metrics while giving out answers
 -- Tell story , as in Beginning- Middle and End with SItuation, Task/Action and Result in the end.
 -- Examples where took risk, succeeded/failed and how you grew after that 
