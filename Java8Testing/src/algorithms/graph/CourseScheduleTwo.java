@@ -34,7 +34,54 @@ public class CourseScheduleTwo {
 
 	}
 
-
+	public int[] findOrderViaBFS(int numCourses, int[][] prerequisites)
+    {
+        HashMap<Integer,LinkedList<Integer>> adjList = new HashMap<>();
+        int n = numCourses;
+        int[] inD = new int[n];
+        
+        for(int[] pre : prerequisites)
+        {
+            adjList.computeIfAbsent(pre[1], k -> new LinkedList<>()).add(pre[0]);
+            inD[pre[0]]++;
+        }
+        
+        Queue<Integer> qu = new ArrayDeque<>();
+        for(int i =0;i<n;i++)
+        {
+            if(inD[i]==0)
+                qu.offer(i);
+        }
+        Queue<Integer> ans = new ArrayDeque<>();
+        int visited = 0;
+        while(!qu.isEmpty())
+        {
+            int next = qu.poll();
+            visited++;
+            List<Integer> lst = adjList.get(next);
+            if(lst!=null)
+            {
+                for(Integer a : lst)
+                {
+                    inD[a]--;
+                    if(inD[a]==0)
+                        qu.offer(a);
+                }
+            }
+            ans.offer(next);
+        }
+        
+        if(visited!=n)
+            return new int[0];
+        int[] ret = new int[ans.size()];
+        for(int i =0;i<ret.length;i++)
+        {
+            ret[i] = ans.poll();
+        }
+        
+        return ret;
+    }
+	
     public int[] findOrder(int numCourses, int[][] prerequisites)
   {
       // first construct the graph as in what courses can you do once you complete a particular course
