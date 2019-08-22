@@ -13,7 +13,7 @@ public class AllNodesInCircularPath {
 				{1, 1, 1, 0, 2},
 				{1, 0, 0, 2, 0}
 							};
-		int num = 5;
+		int num = 5; // number of dogs
 		HashMap<Integer,List<Integer>> hmp = new HashMap<>();
 		for(int i =0 ; i<num;i++)
 		{
