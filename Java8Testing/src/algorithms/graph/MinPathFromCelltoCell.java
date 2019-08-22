@@ -8,12 +8,14 @@ import java.util.Queue;
  * Using backtracking as below method shows where the visited value is set to -1 and then back to 1 to allow for other traversals
  * When the path before the cell matters to the value of the cell then backtracking is used like finding a word in a 2d chars.
  * 
+ * BFS is the correct approach when finding out the shortest path between two points on a grid. its been implemented below.
+ * 
  * Other way would have been to update all 1 to integer.maxValue and then run the logic where 
  * arr[i][j]<dist then return. This would then work similar to walls and gates.
  * @author hemant
  *
  */
-//TODO with BFS as BFS gives the shortest path between two nodes in an un-weighted un-directed graph as the matrix below
+// with BFS as BFS gives the shortest path between two nodes in an un-weighted un-directed graph as the matrix below
 public class MinPathFromCelltoCell {
 
 	public static int[][] input = {
