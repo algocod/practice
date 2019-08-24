@@ -54,7 +54,7 @@ Output: [9,7,8]
 Explanation:
 The partition is "ababcbaca", "defegde", "hijhklij".
 
-This problem has a quite unique way of solving it , store the numbers and their indices , for duplicates just keep overriding the indices 
+This problem has a quite unique way of solving it , store the characters and their indices , for duplicates just keep overriding the indices 
 Once done , start iteration from the start and whenever i = j maxIndex , there will be one partition.
 As each character stores the maxIndex while iterating if it becomes equal to the i , means there is NO Further instance of that character.
 

@@ -18,6 +18,8 @@ public class RunTesting {
 		System.out.println("Stream testing");
 		Stream<BigDecimal> str = (Stream<BigDecimal>)Arrays.stream(arrBD);
 		str.filter( p -> p!=null).filter( p -> p .longValueExact()>0).forEach( p -> System.out.println(p.toString()));
+		StringBuffer sb = new StringBuffer();
+		sb.deleteCharAt(sb.length()-1);
 		/*
 		// Run the TwoInterface problem
 		char c='a';
@@ -95,8 +97,4 @@ public class RunTesting {
 		
 	}
 	
-	public void getWords(String wordN, String end, HashSet<String> dict, HashMap<String> visited, int index, List<List<Character>> adjList, StringBuffer sb)
-    {
-        return;
-    }
 }

@@ -25,8 +25,18 @@ Ask questions and always keep client requirements in mind, whos the client
 Start writing requirements first on teh white board.
 Discuss Trade-Offs , memory vs performance etc. Compatibility, Scalability and maintainability.
 
+====> the below is from a discussion forum.
+Gathered Requirements : Functional/Non-Functional.
+Traffic Estimation, Storage Estimation
+Database Table Design
+Did a high level System Design.
+Added cache and discussed about it.
+
+=====> Some topics for SD from discussion forums.
 Order tracking system
 Design a map
+System Design : AWS Deploy. Create a CI/CD platform
+Design an Email Processing System.
 
 Parking lot 
 > Handling Ambiguity as in get all details for the problem and which part should we target
