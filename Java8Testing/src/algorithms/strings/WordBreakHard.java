@@ -4,19 +4,14 @@ import java.util.*;
 public class WordBreakHard {
 	List<List<String>> ans = new ArrayList<>();
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		/*
-		 * "catsanddog"
-["cat","cats","and","sand","dog"]
-		 */
-		String s = "catsanddogi";
+		String s = "catsanddog";
 		String[] arr = {"cat","cats","and","sand","dog"};
 		List<String> input = new ArrayList<String>();
 		for(String str : arr)
 			input.add(str);
 		new WordBreakHard().wordBreakClean(s, input);
 	}
-
+// TODO the proper way of sending back empty and "" added linkedList
 	public List<String> wordBreakClean(String s, List<String> wordDict) {
 		HashMap<String,List<String>> dp = new HashMap<>();
 		List<String> ans = dfs(s,wordDict,dp);
@@ -29,29 +24,29 @@ public class WordBreakHard {
 		if(dp.containsKey(s))
 			return dp.get(s);
 		
-		LinkedList<String> res = new LinkedList<>();
+		LinkedList<String> res = new LinkedList<>(); // returning a new LinkedList means empty, that is the last few letters didnt match
 		if(s.length()==0)
 		{
-			res.add("");
+			res.add(""); // this means that the matching word ended the string sequence. 
 			return res;
 		}
 			
 		for(String str : dict)
 		{
-			if(s.startsWith(str))
+			if(s.startsWith(str)) // looks expensive for a big dictionary and there is a for loop variant as well for it. 
 			{
-				List<String> subL = dfs(s.substring(str.length()),dict,dp);
+				List<String> subL = dfs(s.substring(str.length()),dict,dp); // this is iterating over each children list elements.
 				for(String sub : subL)
 				{
-					res.add(str + (sub.isEmpty() ? "" : " ") + sub); 
+					res.add(str + (sub.isEmpty() ? "" : " ") + sub);  // the last word need not have space hence the check.
 				}
 			}
 		}
 		
-		dp.put(s, res);
+		dp.put(s, res);// this is key , what to store in a DP, here it stores the remainder of the string which will provide uniqueness
 		return res;
 	}	
-	
+	/*
     public List<String> wordBreak(String s, List<String> wordDict) {
         HashSet<String> dict = new HashSet<>();
         for(String str : wordDict)
@@ -139,5 +134,5 @@ public class WordBreakHard {
         
         return;
     }
-	
+*/	
 }
