@@ -19,7 +19,6 @@ Describe with Examples
 > HTML developer in GS but learned the entire Portfolio Management Theory and its implementation on Efficent Frontier graph.
 
 
-
 System Design:
 Ask questions and always keep client requirements in mind, whos the client
 Start writing requirements first on teh white board.
@@ -37,7 +36,10 @@ Order tracking system
 Design a map
 System Design : AWS Deploy. Create a CI/CD platform
 Design an Email Processing System.
-
+Design a chess game (design question turned into a coding question):
+	What are the classes
+	Inheritance chain
+	Write an algorithm to find all the valid moves for a rook
 Parking lot 
 > Handling Ambiguity as in get all details for the problem and which part should we target
 	System design, Object design ,

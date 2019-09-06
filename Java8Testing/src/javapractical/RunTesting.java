@@ -9,6 +9,33 @@ public class RunTesting {
 	static final String TEXT = "I am a {0} account with {1,number,#} units of {2} currency";
 	public static void main(String[] args) {
 
+		int i = 010;
+		int j =07;
+		System.out.println("--"+i+"---"+j);
+		HashMap<Integer,Integer> hmp = new HashMap<>();
+		int x=0, y=0;
+		for(int z=0;z<5;z++)
+		{
+			if((++x>2) && (++y>2))
+			{
+				x++;
+			}
+				
+		}
+		
+		System.out.println("x"+x+"yy"+y);
+		int a=5,b=6;
+		String s1 = "7";
+		System.out.println(a + b +s1);
+		String[] cities = {"bangalore", "Pune","San Francisco","New York City"};
+		MySort ms = new MySort();
+		Arrays.sort(cities,ms);
+		System.out.println(Arrays.binarySearch(cities, "New York City"));
+		int mask = 0x000F;
+		int value = 0x2222;
+		System.out.println(value & mask);//2
+		//hmp.clea
+		/*
 		BigDecimal bd1, bd2;     
         // Assigning value into BigDecimal object       
         bd1 = new BigDecimal("-36755");   
@@ -20,6 +47,7 @@ public class RunTesting {
 		str.filter( p -> p!=null).filter( p -> p .longValueExact()>0).forEach( p -> System.out.println(p.toString()));
 		StringBuffer sb = new StringBuffer();
 		sb.deleteCharAt(sb.length()-1);
+		*/
 		/*
 		// Run the TwoInterface problem
 		char c='a';
@@ -94,6 +122,17 @@ public class RunTesting {
 	    public String toString() {
 	        return this.name;
 	    }
+		
+	}
+	
+	static class MySort implements Comparator
+	{
+		@Override
+		public int compare(Object a , Object b)
+		{
+			return ((String)b).compareTo((String)a);
+		}
+
 		
 	}
 	
