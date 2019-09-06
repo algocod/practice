@@ -12,6 +12,36 @@ public class WordBreakHard {
 		new WordBreakHard().wordBreakClean(s, input);
 	}
 // TODO the proper way of sending back empty and "" added linkedList
+// Longest sequence of characters problem is also similar , where the DP is for each pair of characters and if an end is reached , return "" or else empty
+// [a,b][b,c][b,d][c,e][e,f][f,g][d,j] - a b c e f  is the sequence
+// DFS with adjacency list and if the end pair has no further adjList or no matching start word return "" attached to the linkedList
+// as a b d is also a valid sequence. 
+// Every call in the stack has its own LinkedList to return , its like sending output from each method.
+// Other way round was sending a new Object to each method call like new StringBuffer(sb) and then removing it while backtracking which is kind of complex.
+/*
+ * the BFS approach to a similar easy problem , can you break the words in a string into dictionary words.
+ public boolean wordBreak(String s, List<String> wordDict) {
+        Set<String> wordDictSet=new HashSet(wordDict);
+        Queue<Integer> queue = new LinkedList<>();
+        int[] visited = new int[s.length()];
+        queue.add(0);
+        while (!queue.isEmpty()) {
+            int start = queue.remove();
+            if (visited[start] == 0) {
+                for (int end = start + 1; end <= s.length(); end++) {
+                    if (wordDictSet.contains(s.substring(start, end))) {
+                        queue.add(end);
+                        if (end == s.length()) {
+                            return true;
+                        }
+                    }
+                }
+                visited[start] = 1;
+            }
+        }
+        return false;
+    }
+ */
 	public List<String> wordBreakClean(String s, List<String> wordDict) {
 		HashMap<String,List<String>> dp = new HashMap<>();
 		List<String> ans = dfs(s,wordDict,dp);
