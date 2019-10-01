@@ -13,6 +13,9 @@ public class ReversePairsBST {
 	    Node root = null;
 	    	
 	    for (int ele : nums) {
+	    	// Searching before adding is key to the rule where i >j so for higher indices, search if anything is greater than the 2*num value
+	    	// and then add it.
+	    	// So it saves the time for twice iteration .
 	        res += search(root, 2L * ele + 1);
 	        root = insert(root, ele);
 	    }
