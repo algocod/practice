@@ -1,0 +1,30 @@
+First interview : System Design , how show pdf files of books to users. 
+Issues :
+> After analyzing user requirements, you should also have analyzed database requirements.
+> jumped straight to scalable solution of Memcache and node clusters.
+
+What better could have been done
+> Book to Chapters , Chapters to Pages , Pages to multiple section of pages .  Page was of 1MB size so 1/4MB on http ? 
+> Instead of page blob , break it down to further smaller chunks to store and retrieve.
+> Design the table structure, like tables for Books, Chapters, pages , sections 
+B1ID  "C1,C2,C3" // chapters are not going to change ever
+C1 pageBegin 0 pageEnd 456
+B1ID_0_1  pdfBlob //1/4MB =250KB   perhaps can be reduced to 1/8 as well to make it 125KB  
+B1ID_0_2  pdfBlob
+B1ID_0_3  pdfBlob
+B1ID_0_4  pdfBlob
+Come up with the metrics of actual data transfer and whats the ideal number to send and split the books .
+> Believe each bookID that is an ISDN num can store the relevant pages with its ID  so the server request is going to be just 
+bookID _ pagenum _ four sequences from 1-4 or can be made dynamic going forward. 
+> Once this part is done , you can move to server requests and scaling of requests , memcache and pre-heated cache etc.
+> Geographic distribution of requests, then grouping of requests based on BookID like 1-100 on node1 etc.
+> Keep content at cache in LRU fashion 
+
+How to handle for Mobile users , the speed and the network is not going to be so smooth , handle fails and breaks. 
+Mobile users travelling between network towers , re-try etc.
+
+> Is LL circular and maximum size subarray (Kadane's Algo)
+> Playlist random shuffle : Expectation was to solve the problem and NOT to extend it in all directions with some class usage. 
+> How to identify cycles in a Garabage Collector : Define the input etc that you missed and assumed set of tuples to begin with . 
+Define input object , create it , and then proceed for cycle detection.
+How to pre-identify cycles : Keep and in-Degree tracker in each object, if its true then return back with cycle= true.
