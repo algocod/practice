@@ -32,10 +32,10 @@ Did a high level System Design.
 Added cache and discussed about it.
 
 =====> Some topics for SD from discussion forums.
-Order tracking system
+Order tracking system 
 Design a map
-System Design : AWS Deploy. Create a CI/CD platform
-Design an Email Processing System.
+System Design : AWS Deploy. Create a CI/CD platform 
+Design an Email Processing System : design outlook, Email and Email processor main classes, tables of same name, regular synch up, and posting.
 Design a chess game (design question turned into a coding question):
 	What are the classes
 	Inheritance chain

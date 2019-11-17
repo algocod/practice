@@ -2,7 +2,7 @@ Streaming data to be sorted and stored with instant access and logN max for top 
 > PriorityQ is a makeshift solution which caters only to static input
 > For dynamic input , use TreeHashMap , which stores Key and value as Node that has value, left, right as Node. 
 TreeHashMap allows for instant access and the sorting is based on the Node.Value which allows for sorting
-Implement a Map of Key and OBject thats part of a MinHeap
+Implement a Map of Key and OBject thats part of a MinHeap : done but need to test properly
 > FB : Add an element , given an entry Node in a single linked LinkedList
 > Serialize and De-serialize a Binary tree
 	preorder like node,left right with comma separate values and end points being written as null,
