@@ -9,7 +9,11 @@ Some usual plots :
 > Try partioning into half, one/third etc to reduce the problem size
 > For LRU, store the key in the hasmap and the actual Nodes as value. These nodes are part of a doubly linked list and you can take it out and fix it.
 > For Least Frequently Used, use a min heap
+	Or Use a bucket based concept where the Frequency is Key in a hashMap and value is DoublyLinkedList which mimics LRU
+	
 > For recursive functions, look for the seed of the function, the initial condition , the exit condition .
+> If a problem is divided into sub-problems and what cant be divided becomes the exit condition 
+	: 
 > How to store values in HashMap for a set of keys ? lets say a num total and index i : String.valueOf(total)+String.valueOf(i);
 > How to store an Array of integers as key in a hashamp like int[] store  Arrays.toString(store) , this is part of the problem where one has to find cycles
 when values in an array changes.
