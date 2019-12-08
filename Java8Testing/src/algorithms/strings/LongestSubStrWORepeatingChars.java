@@ -7,9 +7,10 @@ public class LongestSubStrWORepeatingChars {
 	
 	public static void main(String[] args)
 	{
-		//String s = "abcabcbb";
-		String s = "ijkkkkkk";
+		String s = "abcabcbb";
+		//String s = "ijkkkkkk";
 		int result = lengthOfLongestSubstring(s);
+		int resultReal = lengthOfLongestSubstringReal(s);
 		int result2 = lengthSolWithHmp(s);
 		System.out.println(result2);
 	}

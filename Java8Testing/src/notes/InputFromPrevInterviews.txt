@@ -1,7 +1,14 @@
 Streaming data to be sorted and stored with instant access and logN max for top K search results.
 > PriorityQ is a makeshift solution which caters only to static input
-> For dynamic input , use TreeHashMap , which stores Key and value as Node that has value, left, right as Node. 
+> For dynamic input , use TreeMap , which stores Key and value as Node that has value, left, right as Node. 
 TreeHashMap allows for instant access and the sorting is based on the Node.Value which allows for sorting
+
+The above will have two parts to the solution , first to store elements in hashmap like 
+hmp.put(4, new Node(4,1)); // Node will have key and frequency , Node {int val , int freq , Node left , Node right}
+
+Now a TreeMap of all the Node objects being put in hashMap and hte comparator will be based on the Node.freq 
+At any point in time traversing the tree map will give top K elements.
+
 Implement a Map of Key and OBject thats part of a MinHeap : done but need to test properly
 > FB : Add an element , given an entry Node in a single linked LinkedList
 > Serialize and De-serialize a Binary tree
