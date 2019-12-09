@@ -1,6 +1,6 @@
 package algorithms.graph;
 
-import java.util.HashMap;
+import java.util.*;
 import java.util.PriorityQueue;
 /*
  * This class is a Map and Heap structure combined to solve the Djikstra Algorithm to get shortest path.
@@ -16,9 +16,11 @@ import java.util.PriorityQueue;
 public class TreeMinHeap {
 
 	public static void main(String[] args) {
-		PriorityQueue<Node> pq = new PriorityQueue<>( (a,b) -> b.value-a.value);
+		TreeSet<Node> st = new TreeSet<>(Comparator.comparing((a) ->a.value));
+		
+		PriorityQueue<Node> pq = new PriorityQueue<>( (a,b) -> a.value-b.value);
 		HashMap<String,Node> hmp = new HashMap<>();
-		int[] arr = {1,2,5,3,8,9};
+		int[] arr = {1,2,3,5,8,9};
 		for(Integer a : arr)
 		{
 			Node n = new Node(String.valueOf(a), a);
@@ -26,11 +28,32 @@ public class TreeMinHeap {
 			hmp.put(String.valueOf(a), n);
 			pq.offer(n);
 		}
+	/*	
+		while(pq.size()>0)
+		{
+			System.out.println(pq.poll());
+			// Works fine for initial Min Heap construction
+		}
+*/
+		hmp.computeIfAbsent("2", k -> new Node("0",0)).updateValue(2000);
+		//System.out.println(hmp);
+
+		while(pq.size()>0)
+		{
+			System.out.println(pq.poll()); // The tree doesnt re-arrange itself post a poll activity. 
+			if(pq.peek()!=null)
+				pq.offer(pq.poll());
+			// Post updates of values Min Heap construction
+		}
 		
-		System.out.println(hmp);
-		hmp.computeIfAbsent("2", k -> new Node("0",0)).updateValue(20);
+		
+/*
+		// for IntegerValue you DONT need Atomic Integer
+		// hmp.put(key, hmp.getOrDefault(key,0)+1);
+		
 		pq.offer(pq.poll());
 		System.out.println(pq.peek());
+		*/
 	}
 
 	static class Node
@@ -52,7 +75,8 @@ public class TreeMinHeap {
 		@Override
 		public String toString()
 		{
-			return String.valueOf(key)+ String.valueOf(this.value);
+			//return String.valueOf(key)+ String.valueOf(this.value);
+			return String.valueOf(this.value);
 		}
 	}
 	

@@ -50,7 +50,7 @@ public class ConcurrentStreamOps {
 		
 		Stream<Integer> stmInt4 = lInt.stream();
 		Stream<Integer> stmInt5 = stmInt4.parallel() ;
-		stmInt4.skip(3).forEach(System.out::println);
+		stmInt4.skip(3).forEach(System.out::println); //By operating on stream4 , stream5 also will close as it might just be a copy of strm4
 		stmInt5.distinct().limit(4).forEach(System.out::println);
 		
 		

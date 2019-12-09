@@ -1,0 +1,34 @@
+Very cordial interview, cool,calm and relaxed.
+Focus was always on Requirement elicitation, define, filter , purify the input for e.g.
+Problem : Create the last index page of a book where the words are mentioned along with the page number they are found upon like
+creator : 2, 5, 7
+illusion : 1,3,6
+
+Expectation of interviewer :
+> Go to the very basic , who is going to provide the content ? Author of the book
+> Author is going to provide just words, no chapter num or page num etc , just lot of words.
+> You define the page , come up with that logic like a page of 6 * 4 inches will contain 800 characters so parse and define page .
+> First build the book based on the input , so after parsing words of <=800 m assign another page number.
+> So store all set of words per page num , either in an arrayList or a HashMap, come up  with DS to store it.
+> Once book construction is completed , figure out the logic 
+> Parse page by page  and store in hashmap like words and set of pageNums as the same word can be found ten times in the same page.
+> Figure out edge cases : what would you store and what would you not , like non essential words me , you is , was etc
+> How to eliminate these cases while building the index.
+
+These were the core areas of interest , the actual coding was perhaps just formal but the initial thoroughness was being expected.
+
+Second interview : System design of apartments to renters to leases to family members etc, too deep of a hierarchy out of time
+
+Third interview : core question was reversing words in a sentence. You came up straight with a String buffer solution but expectation was to analyze all options
+> What is the input like , how many spaces in-between words , answer was just 1 which simplifies the solution
+> How can we do , extra memory with SB , in place with twice iteration over the array , first to reverse everything and then reverse each word one by one.
+> Should have discussed all options.
+> Edge cases where it might fail 
+> DONT JUMP TO CODING IN MS Interviews
+
+Fourth Interview : Lot of talks and the question of making a Linked List circular , it was actually an API design question. 
+> Believe they were looking for the approach in a such a simple task 
+> Edge cases of root being null, return an actual single  node ciruclar LL.
+> What if the LL is already circular, check for cycles before.
+> Might be split it into two methods like find the tail and head and pass it to another method to link them and return values. 
+> They were looking for everything but the actual coding which you started doing straight away. 

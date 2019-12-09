@@ -1,4 +1,4 @@
-package bgc;
+package interviewQs;
 
 import java.io.File;
 import java.io.FileNotFoundException;

@@ -5,24 +5,31 @@ Find solid squares in a grid
 > Anagrams of a string : First way is to do an ascii array and keep a count , this would be O(n) and keep doing the same on the other string
 	>> Other way is to sort the letters of the string and then compare them. If they are anagram of each other, they will match exactly.
 Some usual plots :
-> Arrays where the cell can be incremented like 20th element a[20]++
-> For duplicates or pairs , usual choice is sorting , or hashmap
-> For storing key vals, one can use a 2d array or two single arrays where a[0] is key and b[0] is value or ab[0][1] where first col is key and second is value.
 > For integers, do a sum, or minus from a sum
 > Try partioning into half, one/third etc to reduce the problem size
 > For LRU, store the key in the hasmap and the actual Nodes as value. These nodes are part of a doubly linked list and you can take it out and fix it.
 > For Least Frequently Used, use a min heap
+	Or Use a bucket based concept where the Frequency is Key in a hashMap and value is DoublyLinkedList which mimics LRU
+	
 > For recursive functions, look for the seed of the function, the initial condition , the exit condition .
-> Storing memoized values in a hashmap or an array for an index is a better solution.
+> If a problem is divided into sub-problems and what cant be divided becomes the exit condition 
+	: 
 > How to store values in HashMap for a set of keys ? lets say a num total and index i : String.valueOf(total)+String.valueOf(i);
+> How to store an Array of integers as key in a hashamp like int[] store  Arrays.toString(store) , this is part of the problem where one has to find cycles
+when values in an array changes.
+> When there are two arrays, try to minimize the bigger one and do iteration over the small array like rolling dice for N dices . The rolling output is fixed 
+from 1 to 6 so might as well iterate over the possible answers while calculate the number of occurences of pips on N dices
+> For Two Sum problem if the target sum is NOT known and we need to be the closest as possible to the sum then sorting will help 
+	And even when sorting , start with middle of both arrays to find a starting point , like a Binary search. 
+	Sum of sorted arrays presented as a matrix has the max element at right bottom corner has expected 
+	To find the closent number we start from right top corner and keep moving down if less and move left if its more.
+	  
 > For adding Binary numbers lets say Sum then result = Sum%2 and carry = Sum/2
 > For finding duplicates in an array, HashMap or HashSet is the best, if only k elements then remove on addition of next element.
 > TreeMap/Set is a self balanced BST.
 > For the max Profit in an array of prices: Start looking from the end of the array CurrMax = Max(cmax,price[n]), profit = cmax-price[i] , pmax = Max(pmax,profit)
 > To get a max out of an array try looking from the right direction.
 > To rotate an array, first find out the new co-ordinates based on the starting like new_i,new_j = rotate(i,j);  
-> Min window of a matching given String in a big String. Use Hashmap to confirm if all of the pattern elements are present, if a window is found then try minimizing it
-and post that, keep looking for another window.
 > Celebrity in a room where she doesnt know anybody but rest everybody knows her using min amount of function calls. Trick here is to use the boolean answer from
 a single function in two ways like below  with two pointers a and b. 
 while (a < b)  
@@ -33,16 +40,46 @@ while (a < b)
                 b--; 
         } 
   
+====================================String Problems==========================
+For Sliding window use i , j to track start and end of a string.
+max substring with non repeating characters : map.put(char,j) if(map.contains(char)) i = math.max(map.get(char),j) len = j-i+1 
+In the above the i is jumping to the latest value when a character repeats itself.
 
+Substring of size K with K distinct characters
+Over here same as above but instead of i jumping to the latest j , it will increment itself one by one 
+for (int start = 0, end = 0; end < s.length(); end++) {
+            for (; window.contains(s.charAt(end)); start++) { // this is like a while loop , where it keeps removing the char from the start
+                window.remove(s.charAt(start));
+            }
+
+Partition a string in such a way that each letter appears at the max in just one partition like
+Input: S = "ababcbacadefegdehijhklij"
+Output: [9,7,8]
+Explanation:
+The partition is "ababcbaca", "defegde", "hijhklij".
+
+This problem has a quite unique way of solving it , store the characters and their indices , for duplicates just keep overriding the indices 
+Once done , start iteration from the start and whenever i = j maxIndex , there will be one partition.
+As each character stores the maxIndex while iterating if it becomes equal to the i , means there is NO Further instance of that character.
+
+> Min window of a matching given String in a big String. Use Hashmap to confirm if all of the pattern elements are present, if a window is found then try minimizing it
+and post that, keep looking for another window. Keep a count while traversing like A=2,B=1,C=2 , once the entire pattern is found , element or count wise
+then while iterating from left , keep reducing the count to minimize window.
+ 
+=============================================================================
 ===============================HEAP TRICKS====================================
 pq.offer(a) // lets say pq is a min heap.
 pq.offer(-a) // this will create a max heap for the same set of values. 
 Helps to find median where one needs keep track of max element from left side and min element from right side.
+
+Add the minimum two values so lik 1 ,2 ,3 ,4 ,5 ,6 , once the first two values are added , ADD THE RESULT BACK TO HEAP to get a minimum coverage over the 
+result as well.
+
 Skyline problem as well//dig on it.
 
 Heaps hard problems have one thing in common , they require a pre-sorting of inputs first, do this step and then add them to a heap OR
 you can sort using heap in the first step. Either ways, separating the problems in two parts makes it easier. 
-
+================================================================================================================================================
 EASY CODING
 To remove a negative check in a recursive function, its better to make a check while calling the function itself like below
 

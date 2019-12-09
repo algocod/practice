@@ -41,7 +41,7 @@ public class CheckParenthesesOptimal {
 		return(!stk.isEmpty() || stk.pop()!=brak);
 			
 	}
-	
+	// This is the actual clean method to be revised.
 	public static boolean isValid(String s) 
     {
         if(s==null || s.isEmpty())
