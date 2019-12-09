@@ -16,6 +16,7 @@ public class AirportTravelling {
 
 		String[][] lst = {{"MUC","LHR"},{"JFK","MUC"},{"SFO","SJC"},{"LHR","SFO"}};
 		AirportTravelling ap = new AirportTravelling();
+		//ap.findItinerary(lst);
 		ap.connected(lst);
 		
 	}

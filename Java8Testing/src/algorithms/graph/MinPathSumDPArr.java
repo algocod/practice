@@ -23,7 +23,7 @@ public class MinPathSumDPArr {
 	       int min = minPathSumDJ(grid);
 	       System.out.println(min);
 	}    
-    
+    // The below was an attempt at Djikstra algorithm 
 	public static int minPathSumDJ(int[][] grid) 
     {
         Integer[][] store = new Integer[grid.length][grid[0].length];
@@ -103,6 +103,7 @@ public class MinPathSumDPArr {
         return store[len-1][wid-1];
     }
 	
+	// THe DP array becomes 1D to solve.
      public static void dpArr1D(int[][] grid, int row, int col,int[] dpA1)
 	    {
 	        int i = row-2;

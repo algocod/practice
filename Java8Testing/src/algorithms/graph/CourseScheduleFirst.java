@@ -35,9 +35,16 @@ public class CourseScheduleFirst {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
+		//int[][] input = {{1,0}};// works good
+		//int[][] input = {{1,0},{0,1}};// has cycle
+		int[][] input = {{1,0},{0,0}};// the solution is not able to detect self cycles hence the problem description also mentions that duplicate and self cycles
+		// are not present. 
+		new CourseScheduleFirst().canFinish(2, input);
 	}
-	
+	/**
+	 * BFS solution is the one that will work seamlessly across all use cases , be it self cycle or any order of iteration.
+	 * The inDegree keeps a track of courses completed and hence the ultimate result is always correct and doesnt depend upon finding cycles etc.
+	 */
 	public boolean canFinishBFS(int numCourses, int[][] prerequisites) {
 	     
         HashMap<Integer,LinkedList<Integer>>  adjList = new HashMap<>();
@@ -104,6 +111,13 @@ public class CourseScheduleFirst {
 	        return true;
 	    }
 	    
+	  // One needs two visiting and visited DS to handle for multiple entry points 
+	  // so lets say there is only start course as in only one root of a tree then  only a single visiting set will suffice. 
+	  // In below case there are can be multiple courses which can lead to any of the already visiting courses.
+	  // Whenever a cycle is detected that particular node exits with false and the visting map is not cleared 
+	  // So in the next iteration when that node comes in , it will meet the very first condition of visting contains true and return true. 
+	  // This ONLY works because the dfs is being started from 0 and moves further to Nth course. If this was changed to start from random nodes
+	  // the below solution will fail and will have to come up with different. 
 	    public boolean dfs(int node, List<List<Integer>> lst , HashSet<Integer> visiting, HashMap<Integer,Boolean> visited)
 	    {
 	        //System.out.println(node);
@@ -113,6 +127,8 @@ public class CourseScheduleFirst {
 	        if(visiting.contains(node))
 	            return true; // it has a cycle.
 	        
+	        // removing the below piece of code increased the time taken from 7ms to 288ms which is like 40 times.
+	        // The below line makes sure that the already visited nodes are not traversed to save time and NOT to check cycles.
 	        if(visited.get(node))
 	            return false;
 	        
