@@ -7,7 +7,10 @@ The above will have two parts to the solution , first to store elements in hashm
 hmp.put(4, new Node(4,1)); // Node will have key and frequency , Node {int val , int freq , Node left , Node right}
 
 Now a TreeMap of all the Node objects being put in hashMap and hte comparator will be based on the Node.freq 
-At any point in time traversing the tree map will give top K elements.
+At any point in time traversing the tree map will give top K elements. The complexity of sorting everytime a node is updated is 
+LogK but worst case where all elements are not balanced properly like a LInked list will be O(n)
+and for N elements it will be NLogK or N * O(N), worst case will be N^2 where all N elements are distinct and already sorted .
+1 2 3 4 5 6 7 8 9 , it will make up a LL and each addition will be N traversals and for 1 million distinct sorted elements , T = O(N^2) 
 
 Implement a Map of Key and OBject thats part of a MinHeap : done but need to test properly
 > FB : Add an element , given an entry Node in a single linked LinkedList

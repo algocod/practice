@@ -1,0 +1,15 @@
+FB based optimizations/Implementations on Memcache and Memcachd , d stands for distributed servers.
+> Optimizations that have wide impact or scope are targeted.
+> Items are distributed across MemCache servers through Consistent Hashing hence a single Webserver routinely communicates with many Memcache Servers for a single
+user request
+> Each WebServer has a Memcache client that serves for request routing, error handling, request batching as well as serialziation. Maintains a map of 
+all available servers which is updated through a config system.
+> Parallel requests/ Batching : A DAG is constructed representing the dependencies between the data . A web server uses this DAG to maxmize the number of items
+that can be fetched concurrently , average is 24 keys per request.
+> UDP : Connection Less transfer of Data packets over the network, doenst guarantee the right sequence or un-corrupted Data. 
+	All gets in Memcache are UDP
+> TCP : This is a reliable and guaranteed way of sending packets , error handling a, congestion control etc are there .
+	All writes are TCP 
+> McRouter : If a Webserver opens up a TCP connection to a Memcache server its costly and hence again some batching or connection pooling that is provided by
+the FB McRouter.
+ 
