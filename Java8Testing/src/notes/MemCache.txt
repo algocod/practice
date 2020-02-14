@@ -6,7 +6,7 @@ user request
 all available servers which is updated through a config system.
 > Parallel requests/ Batching : A DAG is constructed representing the dependencies between the data . A web server uses this DAG to maxmize the number of items
 that can be fetched concurrently , average is 24 keys per request.
-> UDP : Connection Less transfer of Data packets over the network, doenst guarantee the right sequence or un-corrupted Data. 
+> UDP : Connection Less transfer of Data packets over the network, doesnt guarantee the right sequence or un-corrupted Data. 
 	All gets in Memcache are UDP
 > TCP : This is a reliable and guaranteed way of sending packets , error handling a, congestion control etc are there .
 	All writes are TCP 
