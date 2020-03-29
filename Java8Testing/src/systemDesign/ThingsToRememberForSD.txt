@@ -1,0 +1,10 @@
+Nature of Data : Structured or semi/Un Structured
+Availability of Database
+Scalability of Database
+
+Systems are made highly Available using replication but then Replication leads to loss of consistency.
+
+Cassandra Explained which is highly Available and Scalable:
+> Instead of master slave , it has a ring of nodes in a cluster and a majority of them form a quorum. 
+> Hence no single point of failure.
+> Wide column based database , able to handle high volumes of  read and writes and able to scale to thousands of nodes. 
