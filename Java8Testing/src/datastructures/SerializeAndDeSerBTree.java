@@ -21,7 +21,6 @@ public class SerializeAndDeSerBTree {
             sb.append("null,");
             return;
         }
-        
         sb.append(root.val).append(",");
         ser(root.left,sb);
         ser(root.right,sb);

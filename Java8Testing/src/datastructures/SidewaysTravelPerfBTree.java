@@ -44,7 +44,10 @@ public class SidewaysTravelPerfBTree {
 	public static void main(String[] args) {
 
 	}
-	
+	/**
+	 * THis is like a double for loop running through each row and then columns within the row 
+	 * @param root
+	 */
 	public static void connectLevels(BSTNode root) {     
         if (root == null) return;  
         while (root != null) {
@@ -56,9 +59,9 @@ public class SidewaysTravelPerfBTree {
                 // of the parents Next node. This sidways travel is continued in the while loop before moving down. 
                 if (root.next != null) 
                     root.getRightNode().next = root.next.getLeftNode();
-                root = root.next;
+                root = root.next; // Moving to the columns to the right. 
             }
-            root = temp.getLeftNode();// go down to next level
+            root = temp.getLeftNode();// go down to next level like traversing the rows of a 2d matrix.
         }      
     }
 	/*

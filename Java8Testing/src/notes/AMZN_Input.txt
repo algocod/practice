@@ -28,3 +28,28 @@ Mobile users travelling between network towers , re-try etc.
 > How to identify cycles in a Garabage Collector : Define the input etc that you missed and assumed set of tuples to begin with . 
 Define input object , create it , and then proceed for cycle detection.
 How to pre-identify cycles : Keep and in-Degree tracker in each object, if its true then return back with cycle= true.
+
+===================================================SECOND ROUND INPERSON VIRTUAL============================================
+First was Problem understanding itself, left very open and ambiguous , a paragraph given then allowed me to read and understand . 
+Warehouse -10-> C1 -10--C2--20-C3  .  Expected arrival time is 30 30 60 60 while actual time is 20 40 60 70 . Find out the actual time cost
+					10
+					C5
+The Key here was knowns and unknowns , quite a number of unknowns. Need to ask , and it then seemed like the path is available 
+So Desired path is available then it was just a Linked List traversal and calculate the running cost and keep updating the node if NOT SEEN already.
+
+System Design : Desing a system that captures logs from 15000 servers and allows searching over the key words.
+Class Design : Build a package uploader , figure out the dependencies and check for circular path .Write recursive program to load them in Classpath
+Algo : Design a search for a billion items , could have been reverse linked list or a Trie Data structure. 
+
+
+
+
+
+
+
+
+
+
+
+
+

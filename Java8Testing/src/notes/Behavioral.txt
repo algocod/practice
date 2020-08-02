@@ -8,8 +8,15 @@ Give me an example of when you showed initiative and took the lead.
 Tell me about one of your recent projects.
 Tell me about a decision for which data and analysis weren’t sufficient to provide the right course and you had to rely on your judgment and instincts.
 Tell me about a time when you were wrong.
-Tell me about a time when you had to step up and disagree with a team members approach.
+Tell me about a time when you had to step up and disagree with a team members approach : There was need to authenticate our APIs when subscriptions came from
+outside the group and was a huge demand.  A team member was suggesting to put self created authentication which  would have been quick and easy to develop and
+deploy for the API points. 
+I disagreed and suggested for the bank wide single sign on which was a bit longer in process to adopt but much easier to maintain going forward. Secured in a 
+way  that is coherent with the times. 
+Result :Moving Auth/Entitlement to the central server allowed us to decouple the User functions with the application behavior and onboarding new users as 
+the app grew was seamless.     
 If your direct manager was instructing you to do something you disagreed with, how would you handle it?
+	Discuss the pros and cons of the approach, the trade offs between the approaches and the cost-risk-benefits scenario.  
 
 -- Amazon is data driven so give statistics/metrics while giving out answers
 -- Tell story , as in Beginning- Middle and End with SItuation, Task/Action and Result in the end.

@@ -52,7 +52,7 @@ This should be transactional to make sure everybody sees the same file content h
 What aspects of design should i focus, is there any particular area that I should focus .
 Components identification
 Explain why you chose a particular design
-Upload synhronous and asynrhconous
+Upload synchronous and asynchrconous
 Upload failure
 Tree structure of Files and folders : How to fetch
 Share files : Added a new table but didnt explain. 
@@ -74,7 +74,8 @@ Draw diagrams, arrows , help visualize.
 Get Feedback on which part they would like to focus. 
 Facebook engineering blogs : look for terminologies 
 
-Mention your considerations for UI , middle ware and the backend. I can either start with UI or Middle layer or the Database and get directions from the Interviewer.
+Mention your considerations for UI , middle ware and the backend. 
+I can either start with UI or Middle layer or the Database and get directions from the Interviewer.
 Assumptions should be clarified.
 Scalability
 Pros/Cons
@@ -82,4 +83,4 @@ Throughput/Latency : Get the numbers in place
 Component Diagram of the Solution
 Tools : off the shelf tools , if you know names etc , good but do explain why you want to use it. Reasoning is important.
 Reasoning of pros and cons is important. 
-Divide the whiteboard in sections while designing. 
+Divide the whiteboard in sections while designing.
