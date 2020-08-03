@@ -7,7 +7,6 @@ public class MostFreqEle {
     //public TreeSet<Pair> order = new TreeSet<>();
     
     public HashMap<String,LinkNode> keyAdrs = new HashMap<>();
-    public HashMap<Integer,LinkNode> fAdrs = new HashMap<>();
     public LinkNode head = null;
     public LinkNode tail = null;
     
@@ -33,6 +32,7 @@ public class MostFreqEle {
 		 ["AllOne","inc",	"inc",	"inc",		"dec",	"inc",		"inc",	"getMaxKey"]
 [[],			["hello"],["world"],["hello"],["world"],["hello"],["leet"],		[]]
 		 * */
+	/* Test case 12 
 		obj.inc("hello");
 		obj.inc("world");
 		obj.inc("hello");
@@ -40,15 +40,26 @@ public class MostFreqEle {
 		obj.inc("hello");
 		obj.inc("leet");
 		System.out.println("Maxxxxxxxxxxxxxx"+obj.getMaxKey());
-
+*/
+		// Test case 4
+/* 
+["AllOne","inc","inc","getMaxKey","getMinKey","inc","getMaxKey","getMinKey"]
+[[],["hello"],["hello"],[],[],["leet"],[],[]]
+		*/
+		obj.inc("hello");
+		obj.inc("hello");
+		System.out.println("Maxxxxxxxxxxxxxx"+obj.getMaxKey());
+		System.out.println("Minnnnnnnnnnnnnn"+obj.getMinKey());
+		obj.inc("leet");
+		System.out.println("Maxxxxxxxxxxxxxx"+obj.getMaxKey());
+		System.out.println("Minnnnnnnnnnnnnn"+obj.getMinKey());
+		obj.inc("leet");
 	}
     
     /** Initialize your data structure here. */
     public MostFreqEle() {
         head = new LinkNode(0,null,null);
         tail = new LinkNode(-1,null,head);
-        fAdrs.put(0,head);
-        fAdrs.put(-1,tail);
     }
 
     /** Inserts a new key <Key> with value 1. Or increments an existing key by 1. */
@@ -56,24 +67,20 @@ public class MostFreqEle {
         // doesnt exist
         if(!keyAdrs.containsKey(key))
         {
-           // System.out.println("Key being sent--"+key);
             int f = 1;
-            if(fAdrs.containsKey(f))
+            if(head.next.freq==f)
             {
-                LinkNode p = fAdrs.get(f);
+                LinkNode p = head.next;
                 p.add(key);
                 keyAdrs.put(key,p);
             }
             else
             {
-                //System.out.println("Node being added--");
-                LinkNode nxt = fAdrs.get(0).next;
-                LinkNode prev = fAdrs.get(0);
+                LinkNode nxt = head.next;
+                LinkNode prev = head;
                 LinkNode l = new LinkNode(f,nxt,prev);
                 l.add(key);
-                fAdrs.put(f,l);
                 keyAdrs.put(key,l);
-               // printL(l);
                 
             }
         }
@@ -83,87 +90,31 @@ public class MostFreqEle {
             int f = l.freq;
             f= f+1;
             l.rem(key);
-            System.out.println("Node being added--"+key);
-            if(fAdrs.containsKey(f))
+            if(l.next.freq==f)
             {
-                LinkNode p = fAdrs.get(f);
-                System.out.println("new freq node --"+p.freq);
+                LinkNode p = l.next;
                 p.add(key);
                 keyAdrs.put(key,p);
             }
             else
             {
                 
-                LinkNode prev = fAdrs.getOrDefault(f-1,fAdrs.get(0));
-                LinkNode next = fAdrs.getOrDefault(f+1,fAdrs.get(-1));
+                LinkNode prev = l;
+                LinkNode next = l.next;
                 LinkNode p = new LinkNode(f,next,prev);
                 p.add(key);
-                fAdrs.put(f,p);
                 keyAdrs.put(key,p);
-               // printL(p);
             }
             
             if(l.st.size()==0)
             {
-                System.out.println("Node being removed--"+key);
-                fAdrs.remove(l.freq);
-                LinkNode nxt = l.next;
-                LinkNode pre = l.prev;
-                pre.next = nxt;
-                nxt.prev = pre;
+                clean(l);
             }
             
         }
-        
-        
-        /*
-        System.out.println("Key being sent--"+key);
-        if(hmp.containsKey(key))
-        {
-            Pair ex = hmp.get(key);
-            System.out.println("Key being found--"+ex.key);
-            ex.val = ex.val+1;
-             order.add(ex);
-        }
-        else
-        {
-            
-            System.out.println("First time entry --"+key);
-            Pair ex = new Pair(key,1);
-            hmp.put(key,ex);
-            System.out.println(order);
-            order.add(ex);
-            System.out.println(order);
-        }
-        
-       
-        //if(key.equalsIgnoreCase("b"))
-        //System.out.println(order);
-        */
     }
     
-    public void printL(LinkNode l)
-    {
-    	/*
-        LinkNode tmp = l;
-        System.out.println("forward");
-        while(l!=null)
-        {
-            System.out.println("this is the freq of node "+l.freq);
-            System.out.println("this is the content of node "+l.st);
-            
-            l= l.next;
-        }
-        tmp = tmp.prev;
-        System.out.println("backward");
-        while(tmp!=null)
-        {
-            System.out.println("this is the freq of node "+tmp.freq);
-            System.out.println("this is the content of node "+tmp.st);
-            tmp= tmp.prev;
-        }
-        */
-    }
+    
     
     /** Decrements an existing key by 1. If Key's value is 1, remove it from the data structure. */
     public void dec(String key) {
@@ -172,8 +123,6 @@ public class MostFreqEle {
        
         LinkNode currl = keyAdrs.get(key);
         int currf = currl.freq;
-        System.out.println("Node being reduced--"+key);
-        System.out.println("Freq  being reduced--"+currf);
         if(currf==1)
         {
             keyAdrs.remove(key);
@@ -181,76 +130,52 @@ public class MostFreqEle {
             
             if(currl.st.size()==0)
             {
-                fAdrs.remove(currl.freq);
-                LinkNode nxt = currl.next;
-                LinkNode pre = currl.prev;
-                pre.next = nxt;
-                if(nxt!=null)
-                {
-                    nxt.prev = pre;
-                }
+                clean(currl);
             }
         }
         else
         {
             int f  = currf-1;
             currl.rem(key);
-            LinkNode less = fAdrs.getOrDefault(f,null);
-            if(less==null)
+            LinkNode less = currl.prev;
+            if(less.freq!=f)
             {
-                System.out.println("Node being added for missing freq--"+f);
                 LinkNode prev = currl.prev;
                 LinkNode next = currl;
                 LinkNode l = new LinkNode(f,next,prev);
                 l.add(key);
-                System.out.println("Node  added for missing freq--"+l);
-                fAdrs.put(f,l);
                 keyAdrs.put(key,l);
-                //printL(l);
             }
             else
             {
                 less.add(key);
                 keyAdrs.put(key,less);
+
             }
             
             if(currl.st.size()==0)
             {
-                System.out.println("Remove empty freq nodes  -"+currf);
-                fAdrs.remove(currf);
-                LinkNode nxt = currl.next;
-                LinkNode pre = currl.prev;
-                 System.out.println("pre node -"+pre); // null
-                
-                pre.next = nxt;
-                
-                if(nxt!=null)
-                {
-                    nxt.prev = pre;
-                }
-               // printL(pre);
-                System.out.println("All good-");
+                clean(currl);
             }
             
             
             
         }
-        /*
-        Pair ex = hmp.getOrDefault(key, new Pair(key,0));
-        ex.val = ex.val-1;
-        if(ex.val==0)
-        {
-          hmp.remove(key);
-          order.remove(ex);
-        }
-        */
     }
+    
+    public void clean(LinkNode currl)
+    {
+        LinkNode nxt = currl.next;
+        LinkNode pre = currl.prev;
+
+        pre.next = nxt;
+        nxt.prev = pre;
+    }
+     
     
     /** Returns one of the keys with maximal value. */
     public String getMaxKey() {
-        System.out.println("From the max method  -");
-        printL(head);
-        printL(tail);
+        
         if(tail!=null)
             return tail.prev.getEle();
         else
@@ -266,9 +191,7 @@ public class MostFreqEle {
     
     /** Returns one of the keys with Minimal value. */
     public String getMinKey() {
-        System.out.println("From the min method  -");
-        printL(head);
-        printL(tail);
+    	
         if(head.next!=null)
             return head.next.getEle();
         else
