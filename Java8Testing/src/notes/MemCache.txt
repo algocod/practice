@@ -1,0 +1,54 @@
+FB based optimizations/Implementations on Memcache and Memcachd , d stands for distributed servers.
+> Optimizations that have wide impact or scope are targeted.
+> Items are distributed across MemCache servers through Consistent Hashing hence a single Webserver routinely communicates with many Memcache Servers for a single
+user request
+> Each WebServer has a Memcache client that serves for request routing, error handling, request batching as well as serialziation. Maintains a map of 
+all available servers which is updated through a config system.
+> Parallel requests/ Batching : A DAG is constructed representing the dependencies between the data . A web server uses this DAG to maxmize the number of items
+that can be fetched concurrently , average is 24 keys per request.
+> UDP : Connection Less transfer of Data packets over the network, doesnt guarantee the right sequence or un-corrupted Data. 
+	All gets in Memcache are UDP
+> TCP : This is a reliable and guaranteed way of sending packets , error handling a, congestion control etc are there .
+	All writes are TCP 
+> McRouter : If a Webserver opens up a TCP connection to a Memcache server its costly and hence again some batching or connection pooling that is provided by
+the FB McRouter.
+ 		McR provides congestion control as in : If a huge number of requests or responses are received , the swtich  or the rack can be overwhelmed. Hence there 
+ 		is a sliding window concept as in Send more requests once a response is received and keep increasing the window as and when more responses come
+ 		and decrease the window if responses stop coming. This control is from all requests going to McR and all responses coming from Memcache to McR
+ 		whereas TCP congestion control whereas is limited to per connection.
+
+Data Distribution across Memcache Nodes in a cluster :
+	> One way is to do consistent hashing where the Keys are distributed across the nodes and for a single Web request the WebServer might have to communicate
+	with all Memcache servers
+		: The disadvantage is that a single server can become a bottleneck. Imagine a Key which accounts for 20% of the traffic , which will end up one server
+		will soon be overloaded .
+	> Data Replication across all Nodes : This is anothe way to reduce latency and failures but at the cost of Memory Inefficiencies for some common cases .
+		: All Nodes have same data set but the cost is to keep all the servers updated post a Database Commit .
+		: Any server can be taken down for maintenance or replaced as all the nodes have same data. 
+		: The Memcache servers are further divided into pools like Default and something like very less used with high cost backend trip or Higly frequently used
+			with very less backend cost to re-route requests.
+			
+How to handle overloading of MemCache Servers :
+	> If the entire cluster fails or is down then the requests are routed to another set of clusters
+	> If only a few hosts are not working within a cluster : If this is not taken care of then the load will shift to the persistent store backend which will be
+	soon overloaded and hence a cascading effect.
+	> A few back up Memcache servers are kept called Gutters to be used in case of a single or a few node failures , having a low expiry time.
+	>  This is like buying time while the original hosts are being fixed/rebooted or load shared . 
+	> Another option would have been to re-distribute the keys stored in the failed nodes to the rest of the cluster which will require re-hashing which is 
+	costly and top of it there is NO guarantee that the server hosting one important key that is responsible for 20% of the traffic doesnt get Overloaded again.
+	The re-hashing might lead to cascading nodes failure within a cluster.
+
+How to broadcast the data updates/deletes from the Commit/Transaction Log of a database to the Memcache Servers :
+	> Directly broadcasting the invalidations to the Memcache servers would cause a huge network surge based which would be overloaded.
+	> Instead McSqueal broadcasts these updates to the McRouter which then batches them to the required servers that need to be updated.
+
+Optimizations across Regions :
+	> Make a set of Frontend cluster share the same set of Memcache servers , called a regional pool
+	> How to avoid over replication : Might be some huge items rarely accessed need to have just one copy across the regional pool . 
+	> Try to avoid Cross cluster communication which increases the cost by 40% 
+	> Replication of Data trades off more mem cache servers for less inter cluster bandwith.
+	> While bringing up Nodes in a cluster or restart nodes, copy the cache data from an existing warm Node instead of waiting for the cache and miss operations.
+	
+Master and Slave Databases :
+	> MySQL replication mechanism is relied upon to keep replica databases up-to-date with their masters. There is one Master in the region and rest are replicas.
+	 

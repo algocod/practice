@@ -1,0 +1,3 @@
+High Throughput
+Fault tolerance : Achieved with Replication at the cost of Memory so FB does it with number 3 as in 3 copies of the same data.
+This ensures against any node/server/Data Center failure but comes at huge cost of memory . 

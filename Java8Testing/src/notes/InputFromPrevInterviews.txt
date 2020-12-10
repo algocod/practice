@@ -7,7 +7,10 @@ The above will have two parts to the solution , first to store elements in hashm
 hmp.put(4, new Node(4,1)); // Node will have key and frequency , Node {int val , int freq , Node left , Node right}
 
 Now a TreeMap of all the Node objects being put in hashMap and hte comparator will be based on the Node.freq 
-At any point in time traversing the tree map will give top K elements.
+At any point in time traversing the tree map will give top K elements. The complexity of sorting everytime a node is updated is 
+LogK but worst case where all elements are not balanced properly like a LInked list will be O(n)
+and for N elements it will be NLogK or N * O(N), worst case will be N^2 where all N elements are distinct and already sorted .
+1 2 3 4 5 6 7 8 9 , it will make up a LL and each addition will be N traversals and for 1 million distinct sorted elements , T = O(N^2) 
 
 Implement a Map of Key and OBject thats part of a MinHeap : done but need to test properly
 > FB : Add an element , given an entry Node in a single linked LinkedList
@@ -33,3 +36,51 @@ Implement a Map of Key and OBject thats part of a MinHeap : done but need to tes
 > How to handle a scenario where people are wishing Happy Christmas to everybody on 25th December, the throughput and bottlenecks
 > How would you Design and API that gets data from the server that is lets say for a day, for a user for friends for months , latest comments etc.
 Use JSON input and metadata that keeps defining the end result. 
+
+FB2020
+First round
+> Is a string balanced  ()()())) 
+> Remove minimum brackets to make it balanced  ()()(()  and output the string
+
+Second Round
+2D array of Houses and Trees and EmptySpaces. Find out the empty space which will host a Well that is at minimum distance from all houses. 
+Find the Product of the index , excluding itself, use cases of zeros and negatives etc. One zero and more than one.
+BedBathAndBeyond will result in Bed Bath And Beyond as well as Bed Bat Hand Beyond, find the list of strings possible from a given string and a Dictionary.
+Desing Dropbox like service with focus on Entity Relation ship diagram. Use MSSQL and design the tables of users , files and chunks
+This should be transactional to make sure everybody sees the same file content hence ACID which means Relational Database.
+
+What aspects of design should i focus, is there any particular area that I should focus .
+Components identification
+Explain why you chose a particular design
+Upload synchronous and asynchrconous
+Upload failure
+Tree structure of Files and folders : How to fetch
+Share files : Added a new table but didnt explain. 
+
+Provide Context and why would you do that .
+Read/Writes
+Trade Offs : Keep talking about it and explain the breadth and depth.
+Show depth at least at some place. 
+
+
+Tables, Primary Keys etc ?
+ 
+45 mins 10 mins  
+Volume estimation  : YES  
+High Level vs Low Level details  for Minimal Viable Product. 
+Scale is extremely important hence volume estimates 
+Showcase solution possibilites , pros and cons and how they scale individually.
+Draw diagrams, arrows , help visualize. 
+Get Feedback on which part they would like to focus. 
+Facebook engineering blogs : look for terminologies 
+
+Mention your considerations for UI , middle ware and the backend. 
+I can either start with UI or Middle layer or the Database and get directions from the Interviewer.
+Assumptions should be clarified.
+Scalability
+Pros/Cons
+Throughput/Latency : Get the numbers in place 
+Component Diagram of the Solution
+Tools : off the shelf tools , if you know names etc , good but do explain why you want to use it. Reasoning is important.
+Reasoning of pros and cons is important. 
+Divide the whiteboard in sections while designing.

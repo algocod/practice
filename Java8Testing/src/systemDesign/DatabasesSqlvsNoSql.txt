@@ -1,0 +1,79 @@
+What are the options to choose a Backend Database :
+	RDBMS or NoSql why choose one or the other 
+	> RDBMS gives us ACID compliant data , means its consistent and provides us with High availability with DR or master Slave.
+	Has rows of data with columns as properties of the row. In a auto indexed or Primary Indexed table the primary keys are range distributed on the B-Tree
+	where the leaves are the actual memory address of the data stored. 
+	> NoSql : Basic concept of Key Value pairs and mostly eventually consistent concept but there are some database that are consistent.
+		>>CouchDB/MongoDB are document databases where data is stored in documents instead of tables and these documnents are grouped together in collections.
+	MongoDB is consistent  and it stores data with a primaryKey either auto generatedID or user provided and the value as a JSON like BSON object that is the 
+	Binary JSON object and is stored as a document. Provides search/update operations based on the fields within the document.
+	One can also put validators like constraints in SQL databases within MongoDB on certain fields within the documents.
+	MongoDB is a three node based distributed Database pretty much like MemCache where writes go to primary while reads go to all and the writes are replicated
+	on to the slave nodes. Its not suitable for transactional data like order and pricing but good for unstructured data.
+Why Use MongoDB?	
+Document Oriented Storage − Data is stored in the form of JSON style documents.
+Index on any attribute
+Replication and high availability
+Auto-sharding is the KEY HERE
+Rich queries
+Fast in-place updates
+Professional support by MongoDB
+ 
+	Images of data structure in the same folder.
+		>>Wide-Column Databases : Instead of tables , there are column families which are container for rows. We dont need to know the columns up front 
+		and each row doesnt need to have all the columns. Best suited for analyzing big unstructured datasets like comments , chat logs etc.
+		Hbase example is below and CassandraDB is also a competing example. HBASE has immediate consistency and auto partitioning.
+		In the below example the rows have data only for some of the columns within the column families.
+			Family1						Family2
+	 	q1	q2	q3				q1	q2	q3
+row1	1						4
+row2		2						5
+row3			3						6
+Family1:{  
+   'Qualifier1':'row1:cell_data',
+   'Qualifier2':'row2:cell_data',
+   'Qualifier3':'row3:cell_data'
+}
+Family2:{  
+   'Qualifier1':'row1:cell_data',
+   'Qualifier2':'row2:cell_data',
+   'Qualifier3':'row3:cell_data'
+}
+
+		>> Graph Databases : These databases are used to store data whose relations are best repsresented in a graph with nodes entities and properties.
+		Examples are Neo4j and Infinite Graph.
+		
+Differences as below
+
+Data Base Type Based on Feature					Example of Database								Use case (When to Use)
+Key/ Value										Redis, MemcacheDB				Caching, Queue-ing, Distributing information
+Column-Oriented									Cassandra, HBase				Scaling, Keeping Unstructured, non-volatile
+Document-Oriented								MongoDB, Couchbase				Nested Information, JavaScript friendly
+Graph-Based										OrientDB, Neo4J					Handling Complex relational information. Modeling and Handling classification.
+
+
+
+Reasons to use SQL database
+Here are a few reasons to choose a SQL database:
+
+We need to ensure ACID compliance. ACID compliance reduces anomalies and protects the integrity of your database by prescribing exactly how transactions 
+interact with the database. Generally, NoSQL databases sacrifice ACID compliance for scalability and processing speed, but for many e-commerce and financial 
+applications, an ACID-compliant database remains the preferred option.
+Your data is structured and unchanging. If your business is not experiencing massive growth that would require more servers and if you’re only working with 
+data that is consistent, then there may be no reason to use a system designed to support a variety of data types and high traffic volume.		
+
+Reasons to use NoSQL database
+When all the other components of our application are fast and seamless, NoSQL databases prevent data from being the bottleneck. 
+Big data is contributing to a large success for NoSQL databases, mainly because it handles data differently than the traditional relational databases. 
+A few popular examples of NoSQL databases are MongoDB, CouchDB, Cassandra, and HBase.
+
+>Storing large volumes of data that often have little to no structure. A NoSQL database sets no limits on the types of data we can store together and allows us 
+to add new types as the need changes. With document-based databases, you can store data in one place without having to define what “types” of data those are 
+in advance.
+
+>Making the most of cloud computing and storage. Cloud-based storage is an excellent cost-saving solution but requires data to be easily spread across multiple 
+servers to scale up. Using commodity (affordable, smaller) hardware on-site or in the cloud saves you the hassle of additional software and NoSQL databases 
+like Cassandra are designed to be scaled across multiple data centers out of the box, without a lot of headaches.
+
+>Rapid development. NoSQL is extremely useful for rapid development as it doesn’t need to be prepped ahead of time. If you’re working on quick iterations of
+ your system which require making frequent updates to the data structure without a lot of downtime between versions, a relational database will slow you down.
