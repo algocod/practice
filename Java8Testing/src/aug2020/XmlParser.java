@@ -42,7 +42,10 @@ public class XmlParser {
         Node recans = xp.recp(null);
         prnt(recans);
     }
-
+// The key to recursion here was maintaining a global variable and slowly moving it forward
+    // Keeping the variable ahead at every end of method was important
+    // Continue after the recursive method was also key to move to next pointer
+    // Every begin meant a new recursion hence a while loop of recursions.
     public Node recp(Node n){
         if(i>=input.length) return n;
         while(i<input.length) {
