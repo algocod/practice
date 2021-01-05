@@ -103,5 +103,11 @@ public class ThirtyTwoFormatter {
 		
 	}
 	
+	@Test
+	public void testingTests() {
+		assertEquals("Is this correct",convertInto32(105.25));
+	}
+	
+	
 
 }
