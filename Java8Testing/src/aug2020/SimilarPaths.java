@@ -1,3 +1,5 @@
+package aug2020;
+
 import java.util.*;
 // This problem is about ca
 public class SimilarPaths{
