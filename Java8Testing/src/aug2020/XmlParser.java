@@ -63,7 +63,7 @@ public class XmlParser {
             } else if (type.equals("TEXT")) {
                 n.value = fval;
             } else{
-                i++;
+                i++; // this is  required as you are doing while and there is no way to increment i hence use for loops
                 return n;
             }
             i++;
