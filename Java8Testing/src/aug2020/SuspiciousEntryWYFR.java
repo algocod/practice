@@ -51,7 +51,12 @@ public class SuspiciousEntryWYFR {
             if (curr == null || curr.size() < 3) continue;
             int i=1;
             for(Map.Entry<Integer,Integer> mp: curr.entrySet()){
-                mp.setValue(i);i++;
+                mp.setValue(i);i++; // Assign a marker for the entry times so that its easy to use a TreeMap api like floorEntry
+                // in a time series like 5:1, 1355:2,1410:3,1420:4,1435:5
+                // take 5 , add 100 and get floorEntry(105) , with value lets say 2
+                // curr value of 5 is 1  and floorEntry value is 2 and the target is to find where the difference is k that is 3 above problem statement.
+                // 1355, floorEntry(1445)-> 1420
+                // 1355:2 1420:4 , 4-2 +1 = 3 which fits the criteria hence 1355 will be an answer.
             }
         }
 
