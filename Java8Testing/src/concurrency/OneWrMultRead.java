@@ -21,7 +21,7 @@ public class OneWrMultRead {
         ExecutorService svc = Executors.newCachedThreadPool();
         String[] input = {"google.com/chk","amazon.com/chk","facebook.com/photos"};
         List<Callable<ThreadState>> lcl = new ArrayList<>();
-        for(int i=0;i<3000000;i++){
+        for(int i=0;i<3000;i++){
             final int j =i%3;
             Callable<ThreadState> cl = new Callable<ThreadState>() {
                 @Override
