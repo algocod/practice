@@ -1,0 +1,37 @@
+import java.util.TreeMap;
+import java.util.TreeSet;
+
+public class SortByValueInMap {
+    //public TreeMap<String,Stock> tmp = new TreeMap<>();
+    public TreeSet<Stock> srted = new TreeSet<>();
+
+    public static void main(String[] args){
+        SortByValueInMap stm = new SortByValueInMap();
+        String[] stks = {"A","B","C","D"};
+        Double[] prc = {11.1,15.0,12.6,11.2};
+        for(int i=0;i<4;i++){
+            Stock stk = new Stock(stks[i],prc[i]);
+            stm.srted.add(stk);
+        }
+
+        for(Stock st : stm.srted)
+            System.out.println(st.ticker+"__"+st.price);
+
+    }
+
+    static class Stock implements Comparable {
+        private Double price = null;
+        private String ticker = null;
+        public Stock(String ticker, Double price){
+            this.ticker = ticker;
+            this.price = price;
+        }
+        @Override
+        public int compareTo(Object o) {
+            Stock two = (Stock)o;
+            return this.price==two.price?0:this.price<two.price?1:-1;
+        }
+    }
+
+}
+
